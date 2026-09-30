@@ -1,0 +1,266 @@
+/* ==========================================
+   DUA & ATTEND INTERACTION STYLES (PHASE 09)
+   Mobile-First Luxury 2D Interaction Section
+   ========================================== */
+
+.dua-section-container {
+  position: relative;
+  width: 100%;
+  padding: var(--space-2xl) var(--space-md);
+  background: radial-gradient(
+    circle at 50% 35%,
+    var(--color-cream-50) 0%,
+    var(--color-cream-100) 65%,
+    var(--color-cream-200) 100%
+  );
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* Outer Arch Casing Frame */
+.dua-arch-casing {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  border-radius: 140px 140px 32px 32px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 253, 249, 0.95) 0%,
+    rgba(250, 246, 238, 0.85) 60%,
+    rgba(243, 235, 221, 0.9) 100%
+  );
+  box-shadow: 
+    0 10px 35px rgba(11, 19, 43, 0.05),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  padding: var(--space-xl) var(--space-md) var(--space-2xl) var(--space-md);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.dua-arch-casing::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(197, 160, 89, 0.28);
+  border-radius: 134px 134px 26px 26px;
+  pointer-events: none;
+}
+
+/* Section Header */
+.dua-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  position: relative;
+  z-index: 2;
+}
+
+.dua-header-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2xs);
+}
+
+.dua-header-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-midnight-900);
+  letter-spacing: 0.04em;
+  margin: 0;
+  line-height: 1.25;
+}
+
+/* Actions Container */
+.dua-actions-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 360px;
+}
+
+/* Attend Button */
+.dua-attend-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  width: 100%;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #141C36 0%, #0B132B 100%);
+  border: 1px solid var(--color-gold-base);
+  color: var(--color-cream-100);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--shadow-gold);
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.dua-attend-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
+  border-color: var(--color-gold-light);
+}
+
+.dua-attend-btn:active {
+  transform: translateY(0);
+}
+
+/* Attend Confirmation State */
+.dua-attend-confirmed-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: 18px;
+  background: rgba(255, 253, 249, 0.95);
+  border: 1px solid var(--color-gold-base);
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.25);
+  width: 100%;
+  box-sizing: border-box;
+  animation: fadeInDua 0.5s ease forwards;
+}
+
+.dua-check-icon-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C5A059 0%, #E6C778 100%);
+  color: var(--color-midnight-900);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-xs);
+  box-shadow: var(--shadow-sm);
+}
+
+.dua-confirmed-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-midnight-900);
+  margin-bottom: 2px;
+}
+
+.dua-confirmed-sub {
+  font-family: var(--font-serif-body);
+  font-size: 0.9rem;
+  color: var(--color-gold-dark);
+  font-style: italic;
+}
+
+/* Send Dua Button */
+.dua-send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  width: 100%;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.9);
+  border: 1px solid rgba(197, 160, 89, 0.5);
+  color: var(--color-midnight-900);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.35s ease;
+}
+
+.dua-send-btn:hover {
+  background: rgba(243, 235, 221, 0.95);
+  border-color: var(--color-gold-dark);
+}
+
+/* Revealed Dua Card */
+.dua-revealed-card {
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 253, 249, 0.98) 0%,
+    rgba(248, 242, 230, 0.95) 100%
+  );
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  box-shadow: 0 8px 25px rgba(11, 19, 43, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  animation: fadeInDua 0.5s ease forwards;
+}
+
+.dua-arabic-text {
+  font-family: var(--font-serif-display);
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--color-gold-dark);
+  margin-bottom: var(--space-xs);
+  direction: rtl;
+}
+
+.dua-english-translation {
+  font-family: var(--font-serif-body);
+  font-size: 0.925rem;
+  line-height: 1.45;
+  color: var(--color-midnight-800);
+  font-style: italic;
+  margin-bottom: var(--space-sm);
+  max-width: 300px;
+}
+
+.dua-badge-sent {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-gold-dark);
+  background: rgba(197, 160, 89, 0.12);
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+@keyframes fadeInDua {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,192 @@
+/* ==========================================
+   HERO SECTION STYLES (PHASE 04)
+   Premium Static 2D Mobile Invitation
+   ========================================== */
+
+.hero-section-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-cream-100);
+  background-image: radial-gradient(
+    circle at 50% 35%,
+    var(--color-cream-50) 0%,
+    var(--color-cream-100) 70%,
+    var(--color-cream-200) 100%
+  );
+  box-sizing: border-box;
+  animation: heroFadeIn 0.75s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  z-index: 10;
+  overflow: hidden;
+}
+
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Header Area */
+.hero-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--space-md);
+}
+
+.hero-bismillah-wrapper {
+  margin-bottom: var(--space-xs);
+  opacity: 0.95;
+}
+
+.hero-intro-text {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: var(--space-2xs);
+}
+
+/* Main Content Area */
+.hero-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: var(--space-md) 0;
+  padding: 0 var(--space-sm);
+}
+
+/* Monogram Seal Emblem */
+.hero-monogram-emblem {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: var(--border-gold-subtle);
+  background: var(--color-cream-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-monogram-initials {
+  font-family: var(--font-serif-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-midnight-900);
+  letter-spacing: 1px;
+}
+
+/* Couple Names Typography */
+.hero-couple-names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-bottom: var(--space-sm);
+}
+
+.hero-name-primary {
+  font-family: var(--font-serif-display);
+  font-size: 2.35rem;
+  font-weight: 600;
+  color: var(--color-midnight-900);
+  letter-spacing: 0.08em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.hero-ampersand {
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-size: 1.75rem;
+  color: var(--color-gold-base);
+  margin: var(--space-2xs) 0;
+  line-height: 1;
+}
+
+/* Invitation Copy */
+.hero-invitation-copy {
+  font-family: var(--font-serif-body);
+  font-size: 1.05rem;
+  color: var(--color-midnight-800);
+  letter-spacing: 0.05em;
+  max-width: 320px;
+  margin: 0 auto var(--space-md) auto;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* Date & Location Highlight Frame */
+.hero-date-box {
+  border-top: 1px solid rgba(197, 160, 89, 0.35);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.35);
+  padding: var(--space-sm) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-top: var(--space-xs);
+}
+
+.hero-date-main {
+  font-family: var(--font-serif-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-midnight-900);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.hero-date-hijri {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Footer Section */
+.hero-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.hero-replay-btn {
+  background: transparent;
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  color: var(--color-midnight-700);
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  opacity: 0.7;
+}
+
+.hero-replay-btn:hover {
+  opacity: 1;
+  border-color: var(--color-gold-base);
+  background: rgba(197, 160, 89, 0.08);
+}

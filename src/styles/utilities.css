@@ -1,0 +1,75 @@
+/* ==========================================
+   2D UTILITIES & ORNAMENTS SYSTEM
+   ========================================== */
+
+/* Gold Border Frame & Ornaments */
+.border-gold-frame {
+  border: var(--border-gold-subtle);
+  position: relative;
+}
+
+.border-gold-frame::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(197, 160, 89, 0.15);
+  pointer-events: none;
+}
+
+/* Static 2D Gold Accent Line */
+.gold-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--gold-gradient-shimmer);
+  margin: var(--space-md) auto;
+}
+
+/* Card Surface with Cream/Ivory Background */
+.card-cream {
+  background-color: var(--bg-surface);
+  border: var(--border-cream-subtle);
+  border-radius: 12px;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Midnight Luxury Accent Surface */
+.surface-midnight {
+  background-color: var(--color-midnight-800);
+  color: var(--color-cream-50);
+  border: var(--border-gold-subtle);
+  border-radius: 12px;
+  padding: var(--space-lg);
+}
+
+/* Minimal Maroon Accent Tag */
+.badge-maroon {
+  display: inline-block;
+  background-color: var(--color-maroon-subtle);
+  color: var(--color-maroon-accent);
+  border: 1px solid rgba(88, 24, 37, 0.2);
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-family: var(--font-sans);
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* Flexbox & Alignment Utilities */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.gap-xs { gap: var(--space-xs); }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }

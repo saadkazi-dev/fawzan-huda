@@ -1,0 +1,258 @@
+/* ==========================================
+   NIKAH DETAILS & LOCATION STYLES (PHASE 07)
+   Mobile-First Luxury 2D Venue Section
+   ========================================== */
+
+.nikah-section-container {
+  position: relative;
+  width: 100%;
+  padding: var(--space-2xl) var(--space-md);
+  background: radial-gradient(
+    circle at 50% 35%,
+    var(--color-cream-50) 0%,
+    var(--color-cream-100) 65%,
+    var(--color-cream-200) 100%
+  );
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* Outer Arch Casing Frame */
+.nikah-arch-casing {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  border-radius: 140px 140px 32px 32px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 253, 249, 0.95) 0%,
+    rgba(250, 246, 238, 0.85) 60%,
+    rgba(243, 235, 221, 0.9) 100%
+  );
+  box-shadow: 
+    0 10px 35px rgba(11, 19, 43, 0.05),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  padding: var(--space-xl) var(--space-md) var(--space-2xl) var(--space-md);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.nikah-arch-casing::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(197, 160, 89, 0.28);
+  border-radius: 134px 134px 26px 26px;
+  pointer-events: none;
+}
+
+/* Section Header */
+.nikah-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  position: relative;
+  z-index: 2;
+}
+
+.nikah-header-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2xs);
+}
+
+.nikah-header-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--color-midnight-900);
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* Venue Icon Pin Badge */
+.nikah-pin-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-cream-50);
+  border: var(--border-gold-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold-dark);
+  margin-bottom: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Venue Titles & Copy */
+.nikah-venue-name {
+  font-family: var(--font-serif-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--color-midnight-900);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--space-2xs);
+  text-align: center;
+}
+
+.nikah-address-text {
+  font-family: var(--font-serif-body);
+  font-size: 1.05rem;
+  color: var(--color-midnight-700);
+  line-height: 1.4;
+  max-width: 300px;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+
+/* Embedded Google Maps Container */
+.google-map-embed-container {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  height: 220px;
+  border-radius: 16px;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(11, 19, 43, 0.08);
+  margin-bottom: var(--space-lg);
+}
+
+.google-map-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.google-map-overlay-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(11, 19, 43, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid rgba(197, 160, 89, 0.5);
+  color: var(--color-cream-100);
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.google-map-overlay-badge:hover {
+  background: rgba(197, 160, 89, 0.95);
+  color: var(--color-midnight-900);
+}
+
+.map-nav-icon {
+  width: 12px;
+  height: 12px;
+  color: var(--color-gold-light);
+}
+
+.google-map-overlay-badge:hover .map-nav-icon {
+  color: var(--color-midnight-900);
+}
+
+/* Event Info Details List */
+.nikah-info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: var(--space-xl);
+}
+
+.nikah-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: 12px;
+  background: rgba(255, 253, 249, 0.8);
+  border: 1px solid rgba(197, 160, 89, 0.22);
+}
+
+.nikah-info-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-gold-base);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.nikah-info-label {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.nikah-info-value {
+  font-family: var(--font-serif-body);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-midnight-900);
+}
+
+/* Open in Google Maps Primary CTA Button */
+.open-maps-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #141C36 0%, #0B132B 100%);
+  border: 1px solid var(--color-gold-base);
+  color: var(--color-cream-100);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: var(--shadow-gold);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.open-maps-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.4);
+  border-color: var(--color-gold-light);
+}
+
+.open-maps-cta-btn:active {
+  transform: translateY(0);
+}

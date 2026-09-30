@@ -1,0 +1,272 @@
+/* ==========================================
+   PRELOADER & TAP TO OPEN EXPERIENCE STYLES
+   Subtle 2D Luxury Animations & Responsive Frame
+   ========================================== */
+
+.preloader-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-xl) var(--space-lg);
+  background-color: var(--color-cream-100);
+  background-image: radial-gradient(
+    circle at 50% 40%,
+    var(--color-cream-50) 0%,
+    var(--color-cream-100) 65%,
+    var(--color-cream-200) 100%
+  );
+  overflow: hidden;
+  box-sizing: border-box;
+  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  z-index: 100;
+}
+
+.preloader-container.preloader-leaving {
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none;
+}
+
+/* Header Area */
+.preloader-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--space-lg);
+  z-index: 2;
+}
+
+.preloader-header-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-gold-dark);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: var(--space-xs);
+}
+
+.preloader-header-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-midnight-900);
+  letter-spacing: 0.1em;
+  margin: 0;
+  text-align: center;
+}
+
+/* Center Seal Stage */
+.preloader-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+  z-index: 2;
+  margin: var(--space-md) 0;
+}
+
+/* Monogram Seal Animations */
+.monogram-seal-wrapper {
+  transition: transform var(--transition-smooth), filter var(--transition-smooth);
+}
+
+.monogram-seal-wrapper.seal-ready {
+  animation: floatSeal 4s ease-in-out infinite;
+}
+
+.monogram-seal-wrapper.seal-ready:hover,
+.monogram-seal-wrapper.seal-ready:focus-visible {
+  transform: scale(1.04);
+}
+
+.monogram-seal-wrapper.seal-ready:active {
+  transform: scale(0.96);
+}
+
+.monogram-seal-wrapper.seal-opening {
+  transform: scale(1.12);
+  opacity: 0.9;
+  filter: brightness(1.1);
+}
+
+/* Rotating Inner Islamic Star Pattern */
+.rotating-islamic-star {
+  animation: rotateIslamicPattern 30s linear infinite;
+}
+
+@keyframes rotateIslamicPattern {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes floatSeal {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Subtle Pulse Outer Ring when Ready */
+.seal-pulse-ring {
+  position: absolute;
+  top: -12px;
+  left: -12px;
+  right: -12px;
+  bottom: -12px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-gold-base);
+  opacity: 0;
+  animation: sealPulse 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes sealPulse {
+  0% {
+    transform: scale(0.88);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.08);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.08);
+    opacity: 0;
+  }
+}
+
+/* Footer / Action Area */
+.preloader-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  min-height: 90px;
+  justify-content: center;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Loading Percentage Display */
+.preloader-progress-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.preloader-percentage-num {
+  font-family: var(--font-serif-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-midnight-900);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+.preloader-progress-bar-track {
+  width: 140px;
+  height: 2px;
+  background-color: rgba(197, 160, 89, 0.2);
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.preloader-progress-bar-fill {
+  height: 100%;
+  background: var(--gold-gradient-shimmer);
+  transition: width 0.15s ease-out;
+  border-radius: 999px;
+}
+
+.preloader-loading-label {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Tap to Open Reveal Button Container */
+.tap-to-open-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  animation: fadeInUp 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  cursor: pointer;
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.6);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  box-shadow: var(--shadow-gold);
+  transition: all 0.3s ease;
+}
+
+.tap-to-open-container:hover,
+.tap-to-open-container:focus-visible {
+  background: rgba(255, 253, 249, 0.9);
+  border-color: var(--color-gold-base);
+  box-shadow: 0 6px 24px rgba(197, 160, 89, 0.35);
+}
+
+.tap-to-open-text {
+  font-family: var(--font-serif-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--gold-gradient-shimmer);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: goldShimmer 3s linear infinite;
+}
+
+.tap-to-open-subtext {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  color: var(--color-midnight-700);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.tap-chevron-icon {
+  width: 18px;
+  height: 18px;
+  color: var(--color-gold-base);
+  animation: bounceDown 1.8s ease-in-out infinite;
+}
+
+@keyframes bounceDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes goldShimmer {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

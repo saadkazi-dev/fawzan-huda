@@ -1,0 +1,89 @@
+/* ==========================================
+   MOBILE-FIRST LAYOUT & CONTAINER SYSTEM
+   Supports Mobile Native, Tablet, & Desktop Frame
+   ========================================== */
+
+/* Outer Shell for Tablet/Desktop Presentation */
+.app-viewport {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(
+    circle at 50% 30%,
+    var(--color-midnight-700) 0%,
+    var(--color-midnight-900) 100%
+  );
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Ambient Backdrop Gold Mesh for Desktop Viewport */
+.app-viewport::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(197, 160, 89, 0.06) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: var(--z-background);
+}
+
+/* Primary Mobile-First Invitation Canvas Container */
+.app-wrapper {
+  width: 100%;
+  max-width: var(--app-max-width);
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: none;
+  z-index: var(--z-content);
+  transition: box-shadow var(--transition-smooth);
+}
+
+/* Responsive Enhancements for Tablet & Desktop Screens */
+@media (min-width: 576px) {
+  .app-viewport {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .app-wrapper {
+    min-height: 840px;
+    height: auto;
+    border-radius: var(--app-border-radius);
+    box-shadow: 
+      0 20px 60px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(197, 160, 89, 0.25),
+      0 0 40px rgba(197, 160, 89, 0.1);
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 992px) {
+  .app-viewport {
+    padding: var(--space-2xl) var(--space-lg);
+  }
+  
+  .app-wrapper {
+    max-width: 460px; /* Refined proportion on wide desktop monitors */
+  }
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
