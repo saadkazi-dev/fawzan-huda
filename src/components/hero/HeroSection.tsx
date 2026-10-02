@@ -8,51 +8,80 @@ export interface HeroSectionProps {
 }
 
 /**
- * Premium Hero Section Component (Phase 04)
- * Static 2D luxury wedding invitation hero header.
+ * Gold Diamond Line Divider Component
+ */
+export const DiamondDivider: React.FC<{ className?: string }> = ({ className }) => (
+  <div className={`hero-diamond-divider ${className || ''}`}>
+    <span className="hero-divider-line"></span>
+    <span className="hero-diamond-glyph">❖</span>
+    <span className="hero-divider-line"></span>
+  </div>
+);
+
+/**
+ * Premium Hero Section Component
+ * Architectural Islamic Wedding Invitation with clean structure, seal emblem, WEDDING separator, and TAP TO CONTINUE button.
  */
 export const HeroSection: React.FC<HeroSectionProps> = ({ onReplay }) => {
+  const handleScrollToNext = () => {
+    const nextSection = document.querySelector('.parents-section-container') || document.querySelector('section:nth-of-type(2)');
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="hero-section-container">
       <IslamicArchFrame>
-        {/* Header: Bismillah Calligraphy & Intro */}
+        {/* Top Header: Bismillah Calligraphy & Intro Line */}
         <header className="hero-header">
           <div className="hero-bismillah-wrapper">
             <BismillahCalligraphy />
           </div>
+
           <span className="hero-intro-text">
-            In the Name of Allah, Most Gracious, Most Merciful
+            IN THE NAME OF ALLAH, MOST GRACIOUS, MOST MERCIFUL
           </span>
+
+          <DiamondDivider className="hero-divider-top" />
         </header>
 
-        {/* Center Content: Couple Monogram & Editorial Names */}
+        {/* Center Stage: F&H Seal, Couple Names with WEDDING Separator & Invitation Message */}
         <div className="hero-content">
           <div className="hero-monogram-emblem">
             <span className="hero-monogram-initials">F&amp;H</span>
           </div>
 
           <div className="hero-couple-names">
-            <h1 className="hero-name-primary">FAWZAN</h1>
-            <span className="hero-ampersand">&amp;</span>
-            <h1 className="hero-name-primary">HUDA</h1>
-          </div>
+            <h1 className="hero-name-primary hero-name-fawzan">FAWZAN</h1>
+            
+            <div className="hero-wedding-separator">
+              <span className="hero-flank-line"></span>
+              <span className="hero-wedding-text">WEDDING</span>
+              <span className="hero-flank-line"></span>
+            </div>
 
-          <div className="gold-divider" style={{ margin: 'var(--space-sm) auto' }} />
+            <h1 className="hero-name-primary hero-name-huda">HUDA</h1>
+          </div>
 
           <p className="hero-invitation-copy">
             Together with their families, request the honor of your presence to celebrate their Nikah &amp; Wedding Union.
           </p>
-
-          <div className="hero-date-box">
-            <span className="hero-date-main">SATURDAY, DEC 12, 2026</span>
-            <span className="hero-date-hijri">JUMADA AL-THANI 1448 AH</span>
-          </div>
         </div>
 
-        {/* Footer Option */}
+        {/* Footer: TAP TO CONTINUE Button & Optional Replay Control */}
         <footer className="hero-footer">
+          <button
+            className="hero-continue-btn"
+            onClick={handleScrollToNext}
+            aria-label="Scroll to next section"
+          >
+            <span className="hero-continue-text">TAP TO CONTINUE</span>
+            <span className="hero-continue-arrow">&darr;</span>
+          </button>
+
           {onReplay && (
-            <button className="hero-replay-btn" onClick={onReplay}>
+            <button className="hero-replay-subtle-btn" onClick={onReplay} aria-label="Replay intro video">
               &#8634; Replay Sequence
             </button>
           )}
@@ -61,3 +90,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onReplay }) => {
     </section>
   );
 };
+
+
+
+
+
+

@@ -45,7 +45,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onOpen, autoPlayDurationMs
   }, [autoPlayDurationMs]);
 
   const handleOpenTap = useCallback(() => {
-    if (!isReady || isLeaving) return;
+    if (isLeaving) return;
 
     setIsLeaving(true);
     const timer = setTimeout(() => {
@@ -55,7 +55,18 @@ export const Preloader: React.FC<PreloaderProps> = ({ onOpen, autoPlayDurationMs
     }, 450);
 
     return () => clearTimeout(timer);
-  }, [isReady, isLeaving, onOpen]);
+  }, [isLeaving, onOpen]);
+
+  // Seamless auto-transition to Video Entry Experience when preloader loading completes (100%)
+  useEffect(() => {
+    if (isReady && !isLeaving) {
+      const autoTimer = setTimeout(() => {
+        handleOpenTap();
+      }, 300);
+
+      return () => clearTimeout(autoTimer);
+    }
+  }, [isReady, isLeaving, handleOpenTap]);
 
   return (
     <div className={`preloader-container ${isLeaving ? 'preloader-leaving' : ''}`}>
@@ -85,7 +96,7 @@ export const Preloader: React.FC<PreloaderProps> = ({ onOpen, autoPlayDurationMs
         />
       </main>
 
-      {/* Footer Section: Progress indicator transitioning to TAP TO OPEN */}
+      {/* Footer Section: Progress indicator transitioning to READY state */}
       <footer className="preloader-footer">
         {!isReady ? (
           <div className="preloader-progress-box">
@@ -122,12 +133,12 @@ export const Preloader: React.FC<PreloaderProps> = ({ onOpen, autoPlayDurationMs
               strokeLinecap="round" 
               strokeLinejoin="round"
             >
-              <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
-            <span className="tap-to-open-subtext">Click or tap anywhere on seal</span>
           </div>
         )}
       </footer>
     </div>
   );
 };
+

@@ -1,6 +1,6 @@
 /* ==========================================
    PRELOADER & TAP TO OPEN EXPERIENCE STYLES
-   Subtle 2D Luxury Animations & Responsive Frame
+   Clean Warm Ivory & Champagne Gold Luxury Layout
    ========================================== */
 
 .preloader-container {
@@ -13,18 +13,48 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-xl) var(--space-lg);
-  background-color: var(--color-cream-100);
+  padding: max(var(--space-xl), env(safe-area-inset-top, 24px))
+           max(var(--space-lg), env(safe-area-inset-right, 16px))
+           max(var(--space-md), env(safe-area-inset-bottom, 24px))
+           max(var(--space-lg), env(safe-area-inset-left, 16px));
+  background-color: #FAF6EE;
   background-image: radial-gradient(
-    circle at 50% 40%,
-    var(--color-cream-50) 0%,
-    var(--color-cream-100) 65%,
-    var(--color-cream-200) 100%
+    circle at 50% 45%,
+    #FFFDF9 0%,
+    #FAF6EE 60%,
+    #F3EBDD 100%
   );
+  box-shadow: none;
   overflow: hidden;
   box-sizing: border-box;
   transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
   z-index: 100;
+}
+
+/* Subtle Architectural Midnight & Gold Inner Framing */
+.preloader-container::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  border: 1px solid rgba(11, 19, 43, 0.18);
+  box-shadow: none;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.preloader-container::after {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  bottom: 14px;
+  border: 1px dashed rgba(197, 160, 89, 0.35);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .preloader-container.preloader-leaving {
@@ -54,10 +84,10 @@
 
 .preloader-header-title {
   font-family: var(--font-serif-display);
-  font-size: 1.5rem;
+  font-size: 1.55rem;
   font-weight: 600;
   color: var(--color-midnight-900);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   margin: 0;
   text-align: center;
 }
@@ -74,8 +104,9 @@
   margin: var(--space-md) 0;
 }
 
-/* Monogram Seal Animations */
+/* Monogram Seal Wrapper */
 .monogram-seal-wrapper {
+  position: relative;
   transition: transform var(--transition-smooth), filter var(--transition-smooth);
 }
 
@@ -100,7 +131,7 @@
 
 /* Rotating Inner Islamic Star Pattern */
 .rotating-islamic-star {
-  animation: rotateIslamicPattern 30s linear infinite;
+  animation: rotateIslamicPattern 36s linear infinite;
 }
 
 @keyframes rotateIslamicPattern {
@@ -165,17 +196,18 @@
 
 .preloader-percentage-num {
   font-family: var(--font-serif-display);
-  font-size: 1.5rem;
+  font-size: 1.65rem;
   font-weight: 600;
   color: var(--color-midnight-900);
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
 }
 
 .preloader-progress-bar-track {
-  width: 140px;
-  height: 2px;
-  background-color: rgba(197, 160, 89, 0.2);
+  width: 160px;
+  height: 3px;
+  background-color: rgba(11, 19, 43, 0.18);
+  border: 1px solid rgba(11, 19, 43, 0.12);
   border-radius: 999px;
   overflow: hidden;
   position: relative;
@@ -183,7 +215,7 @@
 
 .preloader-progress-bar-fill {
   height: 100%;
-  background: var(--gold-gradient-shimmer);
+  background: linear-gradient(90deg, #C5A059 0%, #E9D29A 50%, #C5A059 100%);
   transition: width 0.15s ease-out;
   border-radius: 999px;
 }
@@ -191,67 +223,54 @@
 .preloader-loading-label {
   font-family: var(--font-sans);
   font-size: 0.6875rem;
-  color: var(--text-muted);
-  letter-spacing: 0.2em;
+  color: var(--color-midnight-700);
+  letter-spacing: 0.22em;
   text-transform: uppercase;
+  opacity: 0.85;
 }
 
-/* Tap to Open Reveal Button Container */
+/* Tap to Open Reveal Button Container (Compact Luxury Button) */
 .tap-to-open-container {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
+  flex-direction: row;
   align-items: center;
-  gap: var(--space-xs);
-  animation: fadeInUp 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  cursor: pointer;
-  padding: var(--space-sm) var(--space-lg);
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 22px;
   border-radius: 999px;
-  background: rgba(255, 253, 249, 0.6);
-  border: 1px solid rgba(197, 160, 89, 0.35);
-  box-shadow: var(--shadow-gold);
-  transition: all 0.3s ease;
+  background: rgba(255, 253, 249, 0.5);
+  border: 1px solid var(--color-gold-base, #C5A059);
+  box-shadow: 0 2px 10px rgba(197, 160, 89, 0.12);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  animation: fadeInUp 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .tap-to-open-container:hover,
 .tap-to-open-container:focus-visible {
   background: rgba(255, 253, 249, 0.9);
-  border-color: var(--color-gold-base);
-  box-shadow: 0 6px 24px rgba(197, 160, 89, 0.35);
+  border-color: var(--color-gold-dark, #9E7D3B);
+  box-shadow: 0 4px 16px rgba(197, 160, 89, 0.22);
 }
 
 .tap-to-open-text {
   font-family: var(--font-serif-display);
-  font-size: 1.125rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  background: var(--gold-gradient-shimmer);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: goldShimmer 3s linear infinite;
-}
-
-.tap-to-open-subtext {
-  font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  color: var(--color-midnight-700);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  opacity: 0.8;
+  color: var(--color-midnight-900);
 }
 
 .tap-chevron-icon {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   color: var(--color-gold-base);
-  animation: bounceDown 1.8s ease-in-out infinite;
+  transition: transform 0.25s ease;
 }
 
-@keyframes bounceDown {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
+.tap-to-open-container:hover .tap-chevron-icon {
+  transform: translateX(3px);
 }
 
 @keyframes fadeInUp {
@@ -265,8 +284,23 @@
   }
 }
 
-@keyframes goldShimmer {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+/* Accessibility: Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .rotating-islamic-star {
+    animation: none !important;
+  }
+  .monogram-seal-wrapper.seal-ready {
+    animation: none !important;
+  }
+  .seal-pulse-ring {
+    animation: none !important;
+    opacity: 0.25 !important;
+  }
+  .tap-chevron-icon {
+    animation: none !important;
+  }
 }
+
+
+
+

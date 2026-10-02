@@ -1,0 +1,19 @@
+{
+  "name": "Fawzan & Huda Wedding Celebration",
+  "short_name": "Fawzan & Huda",
+  "description": "The Digital Wedding Celebration & Invitation of Fawzan & Huda",
+  "start_url": "/",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen", "minimal-ui"],
+  "orientation": "portrait",
+  "background_color": "#FAF6EE",
+  "theme_color": "#060B18",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

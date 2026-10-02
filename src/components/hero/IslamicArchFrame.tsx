@@ -18,12 +18,16 @@ export const IslamicArchFrame: React.FC<IslamicArchFrameProps> = ({
         position: 'relative',
         width: '100%',
         height: '100%',
-        padding: 'var(--space-xl) var(--space-md)',
+        flex: 1,
+        display: 'flex',
+        flexDirection: 'column',
+        padding:
+          'max(clamp(0.6rem, 1.5vh, 1rem), env(safe-area-inset-top, 12px)) max(clamp(0.85rem, 3.5vw, 1.4rem), env(safe-area-inset-right, 14px)) max(clamp(0.4rem, 1vh, 0.75rem), env(safe-area-inset-bottom, 8px)) max(clamp(0.85rem, 3.5vw, 1.4rem), env(safe-area-inset-left, 14px))',
         boxSizing: 'border-box',
         ...style,
       }}
     >
-      {/* Background Arch Vector Frame */}
+      {/* Architectural Islamic Arch SVG Frame */}
       <svg
         className="arch-frame-svg"
         viewBox="0 0 360 640"
@@ -40,64 +44,69 @@ export const IslamicArchFrame: React.FC<IslamicArchFrameProps> = ({
         }}
       >
         <defs>
-          <linearGradient id="archGoldMain" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#E9D29A" />
-            <stop offset="35%" stopColor="#C5A059" />
-            <stop offset="70%" stopColor="#9E7D3B" />
-            <stop offset="100%" stopColor="#C5A059" />
+          {/* Metallic Champagne Gold Gradients */}
+          <linearGradient id="archGoldMain" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#F9E8C7" />
+            <stop offset="30%" stopColor="#D4AF37" />
+            <stop offset="70%" stopColor="#C5A059" />
+            <stop offset="100%" stopColor="#9E7D3B" />
           </linearGradient>
 
-          <linearGradient id="archGoldSubtle" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#C5A059" stopOpacity="0.4" />
-            <stop offset="50%" stopColor="#F3E2B4" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="#C5A059" stopOpacity="0.3" />
+          <linearGradient id="archGoldBevel" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#FFF8E7" stopOpacity="0.9" />
+            <stop offset="50%" stopColor="#EAD293" stopOpacity="1" />
+            <stop offset="100%" stopColor="#FFF8E7" stopOpacity="0.8" />
           </linearGradient>
+
+          {/* Warm Ivory Interior Gradient */}
+          <radialGradient id="archIvoryInterior" cx="50%" cy="40%" r="70%">
+            <stop offset="0%" stopColor="#FFFDF9" />
+            <stop offset="55%" stopColor="#FAF6EE" />
+            <stop offset="100%" stopColor="#F4EBDD" />
+          </radialGradient>
+
+          {/* Soft Champagne Atmospheric Inner Glow */}
+          <filter id="archChampagneGlow" x="-10%" y="-10%" width="120%" height="120%">
+            <feDropShadow dx="0" dy="3" stdDeviation="6" floodColor="#C5A059" floodOpacity="0.22" />
+          </filter>
         </defs>
 
-        {/* Outer Outer Frame Line */}
+        {/* Outer Frame Border Line with Navy Environment Padding */}
         <rect
           x="12"
-          y="12"
+          y="10"
           width="336"
-          height="616"
+          height="620"
           rx="12"
-          stroke="url(#archGoldSubtle)"
-          strokeWidth="1"
-        />
-
-        {/* Outer Islamic Arch Profile Path */}
-        {/* Arch starts at bottom left, goes up, curves into pointed Moorish arch at apex, and goes down to bottom right */}
-        <path
-          d="M 22 622 L 22 130 C 22 70 120 32 180 20 C 240 32 338 70 338 130 L 338 622 Z"
           stroke="url(#archGoldMain)"
-          strokeWidth="1.5"
+          strokeWidth="1.2"
+          strokeOpacity="0.8"
           fill="none"
         />
 
-        {/* Inner Parallel Arch Line */}
+        {/* Narrower Architectural Islamic Arch Profile Path with Ivory Fill & Gold Border */}
         <path
-          d="M 28 616 L 28 132 C 28 76 122 40 180 28 C 238 40 332 76 332 132 L 332 616 Z"
+          d="M 22 630 L 22 118 C 22 56 114 20 180 10 C 246 20 338 56 338 118 L 338 630 Z"
           stroke="url(#archGoldMain)"
-          strokeWidth="0.75"
-          strokeOpacity="0.6"
+          strokeWidth="2"
+          fill="url(#archIvoryInterior)"
+          filter="url(#archChampagneGlow)"
+        />
+
+        {/* Inner Parallel Arch Bevel Line */}
+        <path
+          d="M 27 625 L 27 120 C 27 60 116 26 180 17 C 244 26 333 60 333 120 L 333 625 Z"
+          stroke="url(#archGoldBevel)"
+          strokeWidth="0.85"
           fill="none"
         />
 
-        {/* Top Arch Apex Medallion (8-Pointed Star) */}
-        <g transform="translate(180, 20)">
-          <rect x="-8" y="-8" width="16" height="16" fill="#FAF6EE" stroke="url(#archGoldMain)" strokeWidth="1" transform="rotate(0)" />
-          <rect x="-8" y="-8" width="16" height="16" fill="none" stroke="url(#archGoldMain)" strokeWidth="1" transform="rotate(45)" />
+        {/* Top Arch Apex Main Keystone Ornament (Rub el Hizb Medallion) */}
+        <g transform="translate(180, 10)">
+          <rect x="-6.5" y="-6.5" width="13" height="13" fill="#FFFDF9" stroke="url(#archGoldMain)" strokeWidth="1" transform="rotate(0)" />
+          <rect x="-6.5" y="-6.5" width="13" height="13" fill="none" stroke="url(#archGoldMain)" strokeWidth="1" transform="rotate(45)" />
           <circle cx="0" cy="0" r="3" fill="url(#archGoldMain)" />
-        </g>
-
-        {/* Corner 8-pointed star ornaments */}
-        {/* Bottom Left Corner */}
-        <g transform="translate(22, 622)">
-          <circle cx="0" cy="0" r="4" fill="#FAF6EE" stroke="url(#archGoldMain)" strokeWidth="1" />
-        </g>
-        {/* Bottom Right Corner */}
-        <g transform="translate(338, 622)">
-          <circle cx="0" cy="0" r="4" fill="#FAF6EE" stroke="url(#archGoldMain)" strokeWidth="1" />
+          <circle cx="0" cy="0" r="1.2" fill="#FFFDF9" />
         </g>
       </svg>
 
@@ -110,6 +119,7 @@ export const IslamicArchFrame: React.FC<IslamicArchFrameProps> = ({
           flexDirection: 'column',
           alignItems: 'center',
           height: '100%',
+          flex: 1,
           justifyContent: 'space-between',
         }}
       >
@@ -118,3 +128,7 @@ export const IslamicArchFrame: React.FC<IslamicArchFrameProps> = ({
     </div>
   );
 };
+
+
+
+

@@ -1,20 +1,44 @@
 /* ==========================================
-   MOBILE-FIRST LAYOUT & CONTAINER SYSTEM
-   Supports Mobile Native, Tablet, & Desktop Frame
+   MOBILE-FIRST IMMERSIVE LAYOUT & CONTAINER SYSTEM
+   Edge-to-Edge Web App with Dynamic Viewport & Safe Areas
    ========================================== */
 
-/* Outer Shell for Tablet/Desktop Presentation */
+/* Root & Body Global Layout Adjustments */
+html {
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #060B18;
+}
+
+body {
+  height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #060B18;
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* Prevent accidental page scrolling or pull-to-refresh during preloader/video sequence */
+html.opening-stage-active,
+body.opening-stage-active {
+  overflow: hidden !important;
+  touch-action: none !important;
+  overscroll-behavior: none !important;
+}
+
+/* Outer Viewport Canvas */
 .app-viewport {
   min-height: 100vh;
+  min-height: 100dvh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(
-    circle at 50% 30%,
-    var(--color-midnight-700) 0%,
-    var(--color-midnight-900) 100%
-  );
+  background: #060B18;
   position: relative;
   overflow-x: hidden;
 }
@@ -23,10 +47,7 @@
 .app-viewport::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: radial-gradient(
     circle at 50% 50%,
     rgba(197, 160, 89, 0.06) 0%,
@@ -39,8 +60,9 @@
 /* Primary Mobile-First Invitation Canvas Container */
 .app-wrapper {
   width: 100%;
-  max-width: var(--app-max-width);
+  max-width: var(--app-max-width, 480px);
   min-height: 100vh;
+  min-height: 100dvh;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   position: relative;
@@ -51,31 +73,61 @@
   transition: box-shadow var(--transition-smooth);
 }
 
-/* Responsive Enhancements for Tablet & Desktop Screens */
-@media (min-width: 576px) {
+/* Mobile Screens: True Edge-to-Edge Full Screen without Borders/Padding */
+@media (max-width: 575px) {
   .app-viewport {
-    padding: var(--space-xl) var(--space-md);
+    padding: 0 !important;
+    background: #060B18;
   }
 
   .app-wrapper {
-    min-height: 840px;
+    max-width: 100% !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Responsive Enhancements for Tablet & Desktop Screens */
+@media (min-width: 576px) {
+  .app-viewport {
+    padding: var(--space-lg) var(--space-md);
+    background: radial-gradient(
+      circle at 50% 30%,
+      var(--color-midnight-700) 0%,
+      var(--color-midnight-900) 100%
+    );
+  }
+
+  .app-wrapper {
+    min-height: 100vh;
+    min-height: 100dvh;
+    max-height: 960px;
     height: auto;
     border-radius: var(--app-border-radius);
     box-shadow: 
-      0 20px 60px rgba(0, 0, 0, 0.4),
-      0 0 0 1px rgba(197, 160, 89, 0.25),
-      0 0 40px rgba(197, 160, 89, 0.1);
+      0 20px 60px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(197, 160, 89, 0.3),
+      0 0 40px rgba(197, 160, 89, 0.15);
     overflow: hidden;
+  }
+
+  /* During opening preloader/video on desktop, ensure edge-to-edge frame fill */
+  .app-viewport.stage-preloader .app-wrapper,
+  .app-viewport.stage-opening-video .app-wrapper {
+    max-height: 100dvh;
+    height: 100dvh;
   }
 }
 
 @media (min-width: 992px) {
   .app-viewport {
-    padding: var(--space-2xl) var(--space-lg);
+    padding: var(--space-xl) var(--space-lg);
   }
   
   .app-wrapper {
-    max-width: 460px; /* Refined proportion on wide desktop monitors */
+    max-width: 480px;
   }
 }
 
@@ -87,3 +139,4 @@
   flex-direction: column;
   position: relative;
 }
+

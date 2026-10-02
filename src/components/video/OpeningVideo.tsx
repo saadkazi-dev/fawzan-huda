@@ -4,21 +4,24 @@ import './OpeningVideo.css';
 export interface OpeningVideoProps {
   videoSrc?: string;
   posterSrc?: string;
+  entryText?: string;
   onEnded: () => void;
 }
 
 export const OpeningVideo: React.FC<OpeningVideoProps> = ({
   videoSrc = '/assets/videos/opening-video.mp4',
   posterSrc,
+  entryText = 'TAP TO ENTER',
   onEnded,
 }) => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [hasStarted, setHasStarted] = useState<boolean>(false);
   const [isEnding, setIsEnding] = useState<boolean>(false);
   const [hasError, setHasError] = useState<boolean>(false);
   const [mountVisible, setMountVisible] = useState<boolean>(false);
 
-  // Trigger smooth fade-in after mount
+  // Trigger smooth fade-in after mount to match preloader transition
   useEffect(() => {
     const timer = setTimeout(() => {
       setMountVisible(true);
@@ -30,7 +33,7 @@ export const OpeningVideo: React.FC<OpeningVideoProps> = ({
     if (isEnding) return;
     setIsEnding(true);
     
-    // Smooth 500ms exit transition before notifying parent
+    // Smooth 550ms exit transition before notifying parent stage
     const exitTimer = setTimeout(() => {
       onEnded();
     }, 550);
@@ -38,42 +41,41 @@ export const OpeningVideo: React.FC<OpeningVideoProps> = ({
     return () => clearTimeout(exitTimer);
   }, [isEnding, onEnded]);
 
-  // Attempt video playback on mount (leveraging user gesture that triggered component mount)
-  useEffect(() => {
+  // Handle direct user gesture to unlock unmuted HTML5 video & audio playback
+  const handleTapToEnter = useCallback(async () => {
+    if (hasStarted || isEnding) return;
+
+    setHasStarted(true);
     const videoElem = videoRef.current;
-    if (!videoElem) return;
 
-    let isMounted = true;
-
-    const playVideo = async () => {
+    if (videoElem) {
       try {
+        videoElem.muted = false;
+        videoElem.volume = 1;
         videoElem.currentTime = 0;
         await videoElem.play();
-        if (isMounted) {
-          setIsPlaying(true);
-        }
+        setIsPlaying(true);
       } catch (err) {
-        console.warn('Playback attempt interrupted or muted fallback required:', err);
-        if (isMounted) {
-          // If unmuted playback fails, attempt muted playback
+        console.warn('Unmuted playback attempt interrupted or muted fallback required:', err);
+        try {
           videoElem.muted = true;
-          try {
-            await videoElem.play();
-            if (isMounted) setIsPlaying(true);
-          } catch (mutedErr) {
-            console.error('Video playback error:', mutedErr);
-            if (isMounted) setHasError(true);
-          }
+          await videoElem.play();
+          setIsPlaying(true);
+        } catch (mutedErr) {
+          console.error('Video playback error:', mutedErr);
+          setHasError(true);
         }
       }
-    };
+    }
+  }, [hasStarted, isEnding]);
 
-    playVideo();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [videoSrc]);
+  // Accessibility keyboard handler on explicit button
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if ((e.key === 'Enter' || e.key === ' ') && !hasStarted) {
+      e.preventDefault();
+      handleTapToEnter();
+    }
+  };
 
   // Fallback timer when video asset is missing or errors out
   useEffect(() => {
@@ -81,7 +83,7 @@ export const OpeningVideo: React.FC<OpeningVideoProps> = ({
 
     const fallbackTimer = setTimeout(() => {
       handleFinish();
-    }, 2500);
+    }, 3500);
 
     return () => clearTimeout(fallbackTimer);
   }, [hasError, handleFinish]);
@@ -104,18 +106,56 @@ export const OpeningVideo: React.FC<OpeningVideoProps> = ({
       </div>
 
       {!hasError ? (
-        <video
-          ref={videoRef}
-          src={videoSrc}
-          poster={posterSrc}
-          className={`opening-video-element ${isPlaying ? 'video-playing' : ''}`}
-          playsInline
-          controls={false}
-          preload="auto"
-          onEnded={handleFinish}
-          onError={() => setHasError(true)}
-          onPlay={() => setIsPlaying(true)}
-        />
+        <div className="video-viewport-wrapper">
+          <video
+            ref={videoRef}
+            src={videoSrc}
+            poster={posterSrc}
+            className={`opening-video-element ${isPlaying ? 'video-playing' : 'video-paused'}`}
+            playsInline
+            controls={false}
+            preload="auto"
+            onEnded={handleFinish}
+            onError={() => setHasError(true)}
+            onPlay={() => setIsPlaying(true)}
+          />
+
+          {/* Luxury Entry Overlay before user interacts */}
+          {!hasStarted && (
+            <div className="video-entry-overlay">
+              {/* Refined Header */}
+              <div className="entry-header-group">
+                <span className="entry-header-subtitle">THE WEDDING CELEBRATION</span>
+                <h2 className="entry-header-title">FAWZAN &amp; HUDA</h2>
+              </div>
+
+              {/* Central Refined CTA Control sitting below seal */}
+              <div className="entry-cta-control">
+                <button
+                  className="entry-cta-btn"
+                  type="button"
+                  onClick={handleTapToEnter}
+                  onKeyDown={handleKeyDown}
+                  aria-label={`${entryText} - start wedding video`}
+                >
+                  <span className="entry-cta-label">{entryText}</span>
+                  <svg
+                    className="entry-cta-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       ) : (
         /* Graceful Fallback View when local video asset is missing or pending */
         <div className="video-fallback-card">
@@ -138,7 +178,7 @@ export const OpeningVideo: React.FC<OpeningVideoProps> = ({
             style={{
               fontFamily: 'var(--font-sans)',
               fontSize: '0.75rem',
-              color: 'rgba(255, 255, 255, 0.6)',
+              color: 'rgba(255, 255, 255, 0.7)',
               marginBottom: 'var(--space-md)',
             }}
           >
@@ -153,3 +193,5 @@ export const OpeningVideo: React.FC<OpeningVideoProps> = ({
     </div>
   );
 };
+
+

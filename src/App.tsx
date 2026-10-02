@@ -9,7 +9,7 @@ function App() {
   const [stage, setStage] = useState<InvitationStage>('preloader');
 
   return (
-    <AppLayout>
+    <AppLayout stage={stage}>
       {stage === 'preloader' && (
         <Preloader onOpen={() => setStage('opening-video')} />
       )}
@@ -27,5 +27,6 @@ function App() {
     </AppLayout>
   );
 }
+
 
 export default App;
