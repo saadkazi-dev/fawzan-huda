@@ -1,6 +1,6 @@
 import React from 'react';
 import { IslamicArchFrame } from './IslamicArchFrame';
-import { BismillahCalligraphy } from './BismillahCalligraphy';
+import { FallingPetals } from './FallingPetals';
 import './HeroSection.css';
 
 export interface HeroSectionProps {
@@ -8,91 +8,86 @@ export interface HeroSectionProps {
 }
 
 /**
- * Gold Diamond Line Divider Component
- */
-export const DiamondDivider: React.FC<{ className?: string }> = ({ className }) => (
-  <div className={`hero-diamond-divider ${className || ''}`}>
-    <span className="hero-divider-line"></span>
-    <span className="hero-diamond-glyph">❖</span>
-    <span className="hero-divider-line"></span>
-  </div>
-);
-
-/**
  * Premium Hero Section Component
- * Architectural Islamic Wedding Invitation with clean structure, seal emblem, WEDDING separator, and TAP TO CONTINUE button.
+ * Architectural Islamic Wedding Invitation with clean structure:
+ * Bismillah Calligraphy -> English Translation -> Subtle Diamond Divider ->
+ * F&H Monogram Seal -> FAWZAN -> WEDDING -> HUDA -> Invitation Message -> TAP TO CONTINUE.
  */
-export const HeroSection: React.FC<HeroSectionProps> = ({ onReplay }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ onReplay: _onReplay }) => {
   const handleScrollToNext = () => {
-    const nextSection = document.querySelector('.parents-section-container') || document.querySelector('section:nth-of-type(2)');
+    const nextSection =
+      document.querySelector('.parents-section-container') ||
+      document.querySelector('section:nth-of-type(2)');
     if (nextSection) {
       nextSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
   return (
-    <section className="hero-section-container">
-      <IslamicArchFrame>
-        {/* Top Header: Bismillah Calligraphy & Intro Line */}
-        <header className="hero-header">
-          <div className="hero-bismillah-wrapper">
-            <BismillahCalligraphy />
-          </div>
+    <section className="hero-section-container" id="hero-invitation">
+      {/* Cinematic Falling Petal Entrance Effect */}
+      <FallingPetals />
 
-          <span className="hero-intro-text">
-            IN THE NAME OF ALLAH, MOST GRACIOUS, MOST MERCIFUL
+      <IslamicArchFrame>
+        {/* 1. Bismillah Calligraphy, Translation & Subtle Diamond Divider */}
+        <header className="hero-bismillah-group">
+          <span className="hero-bismillah-arabic" lang="ar" dir="rtl">
+            بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
           </span>
 
-          <DiamondDivider className="hero-divider-top" />
+          <span className="hero-bismillah-translation">
+            IN THE NAME OF ALLAH, THE MOST GRACIOUS, THE MOST MERCIFUL
+          </span>
+
+          <div className="hero-bismillah-divider" aria-hidden="true">
+            <span className="hero-bismillah-divider-line" />
+            <span className="hero-bismillah-diamond">❖</span>
+            <span className="hero-bismillah-divider-line" />
+          </div>
         </header>
 
-        {/* Center Stage: F&H Seal, Couple Names with WEDDING Separator & Invitation Message */}
-        <div className="hero-content">
-          <div className="hero-monogram-emblem">
-            <span className="hero-monogram-initials">F&amp;H</span>
-          </div>
-
-          <div className="hero-couple-names">
-            <h1 className="hero-name-primary hero-name-fawzan">FAWZAN</h1>
-            
-            <div className="hero-wedding-separator">
-              <span className="hero-flank-line"></span>
-              <span className="hero-wedding-text">WEDDING</span>
-              <span className="hero-flank-line"></span>
+        {/* 2. F&H Embossed Monogram Seal */}
+        <div className="hero-seal-wrapper" aria-label="Fawzan and Huda Monogram Seal">
+          <div className="hero-seal-outer-rim">
+            <div className="hero-seal-inner-body">
+              <span className="hero-seal-initials">
+                F<span className="hero-seal-ampersand">&amp;</span>H
+              </span>
             </div>
-
-            <h1 className="hero-name-primary hero-name-huda">HUDA</h1>
           </div>
+        </div>
 
+        {/* 3. Focal Names Block: FAWZAN, WEDDING Separator & HUDA */}
+        <div className="hero-names-block">
+          <h1 className="hero-couple-names" aria-label="Fawzan and Huda Wedding">
+            <span className="hero-name-primary hero-name-fawzan">FAWZAN</span>
+
+            <span className="hero-wedding-separator" aria-hidden="true">
+              <span className="hero-flank-line" />
+              <span className="hero-wedding-text">WEDDING</span>
+              <span className="hero-flank-line" />
+            </span>
+
+            <span className="hero-name-primary hero-name-huda">HUDA</span>
+          </h1>
+
+          {/* 4. Invitation Copy */}
           <p className="hero-invitation-copy">
             Together with their families, request the honor of your presence to celebrate their Nikah &amp; Wedding Union.
           </p>
         </div>
 
-        {/* Footer: TAP TO CONTINUE Button & Optional Replay Control */}
+        {/* 5. Footer: Refined TAP TO CONTINUE Button */}
         <footer className="hero-footer">
           <button
             className="hero-continue-btn"
             onClick={handleScrollToNext}
-            aria-label="Scroll to next section"
+            aria-label="Continue to invitation details"
           >
             <span className="hero-continue-text">TAP TO CONTINUE</span>
-            <span className="hero-continue-arrow">&darr;</span>
           </button>
-
-          {onReplay && (
-            <button className="hero-replay-subtle-btn" onClick={onReplay} aria-label="Replay intro video">
-              &#8634; Replay Sequence
-            </button>
-          )}
         </footer>
       </IslamicArchFrame>
     </section>
   );
 };
-
-
-
-
-
-

@@ -1,32 +1,28 @@
 /* ==========================================
    HERO SECTION STYLES
-   Architectural Islamic Wedding Invitation Layout
+   Architectural Islamic Wedding Invitation Card
    ========================================== */
 
 .hero-section-container {
   position: relative;
   width: 100%;
+  height: 100vh;
+  height: 100dvh;
   min-height: 100vh;
   min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  background-color: #050914; /* Deep architectural midnight navy outside arch */
-  background-image: radial-gradient(
-    ellipse at 50% 38%,
-    #0E1730 0%,
-    #070D20 60%,
-    #050914 100%
-  );
-  padding: clamp(10px, 2vh, 16px) clamp(16px, 4.5vw, 24px) clamp(6px, 1.2vh, 10px) clamp(16px, 4.5vw, 24px);
+  justify-content: center;
+  background-color: #060B18;
+  padding: clamp(10px, 2vh, 16px) clamp(12px, 3.5vw, 20px);
   box-sizing: border-box;
   z-index: 10;
   overflow: hidden;
-  animation: archEnvironmentReveal 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: heroAtmosphereFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-@keyframes archEnvironmentReveal {
+@keyframes heroAtmosphereFade {
   from {
     opacity: 0;
   }
@@ -35,270 +31,367 @@
   }
 }
 
-/* Gold Diamond Line Divider Component */
-.hero-diamond-divider {
+/* Subtle Natural Paper Tooth Grain inside Arch Content */
+.islamic-arch-content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.55  0 0 0 0 0.45  0 0 0 0 0.35  0 0 0 0.038 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperGrain)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+  z-index: 1;
+}
+
+/* ==========================================
+   BISMILLAH CALLIGRAPHY & TRANSLATION GROUP
+   ========================================== */
+.hero-bismillah-group {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: clamp(12px, 2vh, 18px);
+  padding: 4px 0 2px 0;
+  opacity: 0;
+  transform: translateY(-5px);
+  animation: cinematicFadeDown 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+}
+
+/* Localized soft creamy ivory halo behind calligraphy to quiet the texture and maximize readability */
+.hero-bismillah-group::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(230px, 68vw, 290px);
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 45%,
+    rgba(255, 253, 248, 0.94) 0%,
+    rgba(250, 245, 236, 0.82) 48%,
+    rgba(250, 245, 236, 0) 100%
+  );
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-bismillah-arabic {
+  position: relative;
+  font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', Georgia, serif;
+  font-size: clamp(1.18rem, 3.6vw, 1.42rem);
+  font-weight: 700;
+  color: #0B1630;
+  letter-spacing: 0.03em;
+  line-height: 1.38;
+  text-align: center;
+  display: inline-block;
+  filter: 
+    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.95))
+    drop-shadow(0 0 4px rgba(26, 47, 95, 0.32))
+    drop-shadow(0 0 11px rgba(16, 29, 64, 0.15));
+  animation: bismillahNavyBreathing 5s ease-in-out infinite alternate;
+  transition: filter 0.4s ease;
+}
+
+.hero-bismillah-translation {
+  font-family: var(--font-sans);
+  font-size: clamp(0.46rem, 1.3vw, 0.54rem);
+  font-weight: 600;
+  color: #1C2B4D;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-top: clamp(4px, 0.8vh, 6px);
+  text-align: center;
+  opacity: 0.9;
+  display: block;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+
+.hero-bismillah-divider {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  width: 65%;
-  max-width: 220px;
-  margin: clamp(0.25rem, 0.8vh, 0.5rem) auto;
-  opacity: 0;
-  animation: cinematicFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.45s forwards;
+  width: 100%;
+  max-width: 130px;
+  margin: clamp(5px, 0.9vh, 8px) auto 0 auto;
 }
 
-.hero-divider-line {
-  height: 1px;
+.hero-bismillah-divider-line {
   flex: 1;
-  background: linear-gradient(90deg, transparent, rgba(197, 160, 89, 0.55), transparent);
+  height: 0.75px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(197, 160, 89, 0.6) 50%,
+    transparent 100%
+  );
 }
 
-.hero-diamond-glyph {
-  font-size: 0.625rem;
-  color: var(--color-gold-base);
+.hero-bismillah-diamond {
+  font-size: 0.48rem;
+  color: #C5A059;
+  line-height: 1;
   opacity: 0.85;
 }
 
-.hero-divider-top {
-  margin-top: clamp(0.2rem, 0.6vh, 0.4rem);
-}
-
-/* Header Area: Arabic Calligraphy & Intro */
-.hero-header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: clamp(0.2rem, 0.8vh, 0.5rem);
-}
-
-.hero-bismillah-wrapper {
-  margin-bottom: clamp(0.1rem, 0.4vh, 0.25rem);
-  opacity: 0;
-  transform: scale(0.88);
-  animation: bismillahGoldShimmer 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
-  filter: drop-shadow(0 2px 6px rgba(197, 160, 89, 0.35));
-}
-
-.hero-bismillah-wrapper svg {
-  width: clamp(165px, 46vw, 205px) !important;
-  max-width: 88%;
-  margin: 0 auto;
-}
-
-.hero-intro-text {
-  font-family: var(--font-sans);
-  font-size: clamp(0.575rem, 1.75vw, 0.675rem);
-  font-weight: 500;
-  color: var(--color-gold-dark);
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  margin-top: 2px;
-  text-align: center;
-  opacity: 0;
-  animation: cinematicFadeUp 0.7s cubic-bezier(0.25, 1, 0.5, 1) 0.35s forwards;
-}
-
-/* Center Content Stage */
-.hero-content {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin: auto 0;
-  padding: 0 var(--space-xs);
-}
-
-/* 3D Monogram Coin Emblem above FAWZAN */
-.hero-monogram-emblem {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-gold-base);
-  background: radial-gradient(circle at 35% 35%, #FFFDF9 0%, #FAF4E6 60%, #E2CA92 100%);
+/* ==========================================
+   F&H EMBOSSED MONOGRAM SEAL
+   ========================================== */
+.hero-seal-wrapper {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: clamp(0.15rem, 0.5vh, 0.35rem);
-  margin-bottom: clamp(0.35rem, 1vh, 0.6rem);
-  box-shadow: 0 5px 16px rgba(197, 160, 89, 0.3), inset 0 2px 4px rgba(255, 255, 255, 0.9);
+  margin: 0 auto clamp(10px, 1.8vh, 16px) auto;
+  border-radius: 50%;
   opacity: 0;
-  transform: scale(0.88);
-  animation: monogramMaterialize 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.45s forwards;
+  transform: scale(0.9);
+  animation: 
+    sealMaterialize 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards,
+    sealGoldShimmer 6s ease-in-out 1.5s infinite;
 }
 
-.hero-monogram-initials {
+.hero-seal-outer-rim {
+  width: clamp(60px, 15vw, 68px);
+  height: clamp(60px, 15vw, 68px);
+  border-radius: 50%;
+  padding: 2.5px;
+  background: linear-gradient(
+    135deg,
+    #F7E7C4 0%,
+    #D4AF37 25%,
+    #C5A059 55%,
+    #9E7D3B 80%,
+    #C5A059 100%
+  );
+  box-shadow:
+    0 4px 16px rgba(197, 160, 89, 0.24),
+    0 2px 6px rgba(11, 19, 43, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px rgba(110, 85, 35, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.hero-seal-inner-body {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 1px solid rgba(197, 160, 89, 0.55);
+  background: radial-gradient(circle at 40% 35%, #FFFFFF 0%, #FAF5EC 55%, #F0E4D1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow:
+    inset 0 1px 3px rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px rgba(197, 160, 89, 0.25);
+  box-sizing: border-box;
+}
+
+.hero-seal-initials {
   font-family: var(--font-serif-display);
-  font-size: 1rem;
-  font-weight: 700;
-  color: #0A1226;
-  letter-spacing: 0.08em;
+  font-size: clamp(1.2rem, 3.3vw, 1.4rem);
+  font-weight: 600;
+  color: #0B132B;
+  letter-spacing: 0.06em;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
 }
 
-/* Couple Names Typography (FAWZAN -> WEDDING -> HUDA) */
+.hero-seal-ampersand {
+  font-family: var(--font-serif-body);
+  font-size: 0.88em;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-gold-dark);
+  margin: 0 2px;
+}
+
+/* ==========================================
+   COUPLE NAMES BLOCK (FAWZAN - WEDDING - HUDA)
+   ========================================== */
+.hero-names-block {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
 .hero-couple-names {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  margin-bottom: clamp(0.4rem, 1.2vh, 0.7rem);
   width: 100%;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
 .hero-name-primary {
   font-family: var(--font-serif-display);
-  font-size: clamp(2.35rem, 7.5vw, 3.15rem);
+  font-size: clamp(2.65rem, 8.6vw, 3.45rem);
   font-weight: 600;
-  color: #0A1226;
-  letter-spacing: 0.12em;
-  line-height: 1.08;
+  color: #0B132B;
+  letter-spacing: 0.14em;
+  line-height: 1.05;
   text-transform: uppercase;
   margin: 0;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.95), 0 0 16px rgba(197, 160, 89, 0.28);
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.92), 0 0 18px rgba(197, 160, 89, 0.12);
+  display: block;
 }
 
 .hero-name-fawzan {
   opacity: 0;
-  transform: translateY(10px);
-  animation: cinematicFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.0s forwards;
-}
-
-.hero-wedding-separator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin: 3px 0;
-  width: 100%;
-}
-
-.hero-flank-line {
-  width: clamp(24px, 8vw, 45px);
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-gold-base), transparent);
-}
-
-.hero-wedding-text {
-  font-family: var(--font-serif-display);
-  font-size: clamp(0.675rem, 2.1vw, 0.8rem);
-  font-weight: 500;
-  color: var(--color-gold-dark);
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  opacity: 0;
-  animation: cinematicFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.15s forwards;
+  transform: translateY(12px);
+  animation: cinematicFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards;
 }
 
 .hero-name-huda {
   opacity: 0;
-  transform: translateY(10px);
-  animation: cinematicFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
+  transform: translateY(12px);
+  animation: cinematicFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
 }
 
-/* Invitation Copy - Editorial Column */
+/* Refined WEDDING Separator Micro-Label */
+.hero-wedding-separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 220px;
+  margin: clamp(5px, 1vh, 8px) auto;
+  opacity: 0;
+  animation: cinematicFadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.58s forwards;
+}
+
+.hero-flank-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(197, 160, 89, 0.7) 50%,
+    transparent 100%
+  );
+}
+
+.hero-wedding-text {
+  font-family: var(--font-sans);
+  font-size: clamp(0.62rem, 1.85vw, 0.7rem);
+  font-weight: 500;
+  color: var(--color-gold-dark);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  padding: 0 4px;
+}
+
+/* Editorial Invitation Copy */
 .hero-invitation-copy {
   font-family: var(--font-serif-body);
-  font-size: clamp(0.9rem, 2.8vw, 1.025rem);
-  color: var(--color-midnight-800);
-  letter-spacing: 0.03em;
-  width: 84%;
-  max-width: 320px;
-  margin: 0 auto clamp(0.35rem, 1vh, 0.65rem) auto;
+  font-size: clamp(0.94rem, 2.7vw, 1.05rem);
+  color: #1E2640;
+  letter-spacing: 0.025em;
+  width: 86%;
+  max-width: 290px;
+  margin: clamp(12px, 2.1vh, 18px) auto 0 auto;
   line-height: 1.62;
+  text-align: center;
   opacity: 0;
-  transform: translateY(6px);
-  animation: cinematicFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.6s forwards;
+  transform: translateY(8px);
+  animation: cinematicFadeUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.85s forwards;
 }
 
-/* Footer Section: TAP TO CONTINUE Button */
+/* ==========================================
+   FOOTER: REFINED TAP TO CONTINUE CTA
+   ========================================== */
 .hero-footer {
+  position: relative;
+  z-index: 2;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: clamp(0.15rem, 0.5vh, 0.4rem);
-  margin-bottom: clamp(0.5rem, 1.5vh, 1rem);
+  margin-top: clamp(18px, 3.6vh, 34px);
+  margin-bottom: 0;
+  padding-bottom: 0;
   opacity: 0;
-  animation: cinematicFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.8s forwards;
+  animation: cinematicFadeIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) 1s forwards;
 }
 
 .hero-continue-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  background: radial-gradient(circle at 50% 35%, #FFFDF9 0%, #FAF5E8 60%, #EFE3CF 100%);
-  border: 1.2px solid var(--color-gold-base);
-  color: #0A1226;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF6EE 55%, #ECE0CC 100%);
+  border: 1px solid rgba(197, 160, 89, 0.7);
+  color: #0B132B;
   font-family: var(--font-sans);
-  font-size: clamp(0.65rem, 2vw, 0.725rem);
+  font-size: clamp(0.66rem, 1.85vw, 0.725rem);
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  padding: 8px 22px;
+  padding: 10px 26px;
   border-radius: 999px;
   cursor: pointer;
-  box-shadow: 0 4px 14px rgba(197, 160, 89, 0.28), inset 0 1px 2px rgba(255, 255, 255, 0.8);
-  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow:
+    0 4px 14px rgba(197, 160, 89, 0.22),
+    0 1px 3px rgba(11, 19, 43, 0.06),
+    inset 0 1px 1px rgba(255, 255, 255, 0.95);
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hero-continue-btn:hover,
 .hero-continue-btn:focus-visible {
   transform: translateY(-2px);
   border-color: #9E7D3B;
-  box-shadow: 0 6px 18px rgba(197, 160, 89, 0.4), inset 0 1px 2px rgba(255, 255, 255, 1);
-  background: radial-gradient(circle at 50% 35%, #FFFFFF 0%, #FAF6EE 60%, #E6D6B8 100%);
+  box-shadow:
+    0 6px 18px rgba(197, 160, 89, 0.32),
+    0 2px 6px rgba(11, 19, 43, 0.08),
+    inset 0 1px 2px rgba(255, 255, 255, 1);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FCF8F2 50%, #F4E8D7 100%);
 }
 
 .hero-continue-btn:active {
   transform: translateY(0);
+  box-shadow:
+    0 2px 6px rgba(197, 160, 89, 0.18),
+    inset 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.hero-continue-arrow {
-  font-size: 0.85rem;
-  color: var(--color-gold-dark);
-  animation: arrowBounce 1.8s ease-in-out infinite;
+.hero-continue-text {
+  display: inline-block;
+  line-height: 1;
 }
 
-@keyframes arrowBounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(3px);
-  }
-}
-
-.hero-replay-subtle-btn {
-  background: transparent;
-  border: none;
-  color: var(--color-midnight-700);
-  font-family: var(--font-sans);
-  font-size: 0.5875rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: 6px;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.2s ease;
-}
-
-.hero-replay-subtle-btn:hover {
-  opacity: 1;
-  color: var(--color-gold-dark);
-}
-
-
-
-
-
-/* Keyframe Animations for Cinematic Staggered Reveal */
+/* ==========================================
+   CINEMATIC ENTRANCE & GOLD GLOW ANIMATIONS
+   ========================================== */
 @keyframes cinematicFadeDown {
   from {
     opacity: 0;
-    transform: translateY(-8px);
+    transform: translateY(-6px);
   }
   to {
     opacity: 1;
@@ -309,10 +402,10 @@
 @keyframes cinematicFadeUp {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
   to {
-    opacity: 0.96;
+    opacity: 1;
     transform: translateY(0);
   }
 }
@@ -326,21 +419,10 @@
   }
 }
 
-@keyframes bismillahGoldShimmer {
+@keyframes sealMaterialize {
   from {
     opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(0.95);
-  }
-}
-
-@keyframes monogramMaterialize {
-  from {
-    opacity: 0;
-    transform: scale(0.84);
+    transform: scale(0.88);
   }
   to {
     opacity: 1;
@@ -348,13 +430,50 @@
   }
 }
 
-/* Accessibility: Prefers Reduced Motion */
+@keyframes sealGoldShimmer {
+  0%, 100% {
+    box-shadow:
+      0 4px 16px rgba(197, 160, 89, 0.24),
+      0 2px 6px rgba(11, 19, 43, 0.08),
+      inset 0 1px 2px rgba(255, 255, 255, 0.9),
+      inset 0 -1px 2px rgba(110, 85, 35, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 4px 22px rgba(212, 175, 55, 0.38),
+      0 2px 8px rgba(11, 19, 43, 0.1),
+      inset 0 1px 3px rgba(255, 255, 255, 1),
+      inset 0 -1px 2px rgba(138, 105, 45, 0.5);
+  }
+}
+
+/* 3-Layer Cinematic Breathing Glow for Midnight Navy Arabic Bismillah */
+@keyframes bismillahNavyBreathing {
+  0%, 100% {
+    filter: 
+      drop-shadow(0 1px 0 rgba(255, 255, 255, 0.95))
+      drop-shadow(0 0 4px rgba(26, 47, 95, 0.32))
+      drop-shadow(0 0 11px rgba(16, 29, 64, 0.15));
+  }
+  50% {
+    filter: 
+      drop-shadow(0 1px 0 rgba(255, 255, 255, 1))
+      drop-shadow(0 0 7px rgba(35, 62, 122, 0.48))
+      drop-shadow(0 0 16px rgba(18, 33, 72, 0.24));
+  }
+}
+
+/* ==========================================
+   ACCESSIBILITY: PREFERS REDUCED MOTION
+   ========================================== */
 @media (prefers-reduced-motion: reduce) {
-  .hero-bismillah-wrapper,
-  .hero-intro-text,
-  .hero-monogram-emblem,
+  .hero-section-container,
+  .hero-bismillah-group,
+  .hero-bismillah-arabic,
+  .hero-seal-wrapper,
+  .hero-seal-outer-rim,
   .hero-name-fawzan,
-  .hero-ampersand,
+  .hero-wedding-separator,
   .hero-name-huda,
   .hero-invitation-copy,
   .hero-footer {
@@ -363,6 +482,3 @@
     transform: none !important;
   }
 }
-
-
-

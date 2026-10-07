@@ -19,7 +19,7 @@ export const HeroMountPoint: React.FC<HeroMountPointProps> = ({ onReplay }) => {
     <div className="main-invitation-flow" style={{ width: '100%' }}>
       <HeroSection onReplay={onReplay} />
       <ParentsSection />
-      <ScratchDateSection />
+      <ScratchDateSection />  
       <NikahSection />
       <ReceptionSection />
       <DuaAttendSection />

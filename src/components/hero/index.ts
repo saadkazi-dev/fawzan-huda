@@ -4,3 +4,4 @@ export { HeroSection } from './HeroSection';
 export type { HeroSectionProps } from './HeroSection';
 export { IslamicArchFrame } from './IslamicArchFrame';
 export { BismillahCalligraphy } from './BismillahCalligraphy';
+export { FallingPetals } from './FallingPetals';
