@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { VideoPlayer } from './VideoPlayer';
+import type { VideoPlayerHandle } from './VideoPlayer';
 import './InvitationVideoPage.css';
 
 interface InvitationVideoPageProps {
@@ -10,8 +11,31 @@ export const InvitationVideoPage: React.FC<InvitationVideoPageProps> = ({
   onNavigateHome,
 }) => {
   const [showToast, setShowToast] = useState<boolean>(false);
+  const [toastMessage, setToastMessage] = useState<string>('');
+  const videoPlayerRef = useRef<VideoPlayerHandle | null>(null);
+
   const videoSrc = '/videos/wedding-invitation.mp4';
   const downloadFileName = 'Fawzan-and-Huda-Wedding-Invitation.mp4';
+
+  const showNotification = (message: string) => {
+    setToastMessage(message);
+    setShowToast(true);
+    window.setTimeout(() => setShowToast(false), 3500);
+  };
+
+  const handleCastToTV = () => {
+    if (videoPlayerRef.current) {
+      videoPlayerRef.current.cast();
+    } else {
+      handleCastUnavailable();
+    }
+  };
+
+  const handleCastUnavailable = () => {
+    showNotification(
+      'Cast to TV is not supported on this browser or no compatible TV was detected on Wi-Fi. Try Screen Mirroring, AirPlay, or HDMI.'
+    );
+  };
 
   const handleShare = async () => {
     const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
@@ -44,8 +68,7 @@ export const InvitationVideoPage: React.FC<InvitationVideoPageProps> = ({
         document.execCommand('copy');
         document.body.removeChild(textarea);
       }
-      setShowToast(true);
-      window.setTimeout(() => setShowToast(false), 3000);
+      showNotification('Invitation link copied to clipboard!');
     } catch (err) {
       console.warn('Clipboard write failed:', err);
     }
@@ -112,13 +135,37 @@ export const InvitationVideoPage: React.FC<InvitationVideoPageProps> = ({
             </div>
           </header>
 
-          {/* HTML5 Luxury 16:9 Landscape Video Player */}
+          {/* HTML5 Luxury 16:9 Landscape Video Player (Unwanted overlay removed, clean and unobstructed) */}
           <main className="video-player-wrapper">
-            <VideoPlayer src={videoSrc} />
+            <VideoPlayer
+              ref={videoPlayerRef}
+              src={videoSrc}
+              onCastUnavailable={handleCastUnavailable}
+              showCastButton={true}
+            />
           </main>
 
           {/* Interactive Actions Section */}
           <section className="video-actions-section" aria-label="Video actions">
+            {/* Dedicated Cast to TV Action Button */}
+            <button
+              type="button"
+              className="action-btn-cast"
+              onClick={handleCastToTV}
+              aria-label="Cast wedding invitation video to TV"
+            >
+              <div className="action-btn-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6M2 20h.01" />
+                </svg>
+              </div>
+              <div className="action-btn-texts">
+                <span className="action-btn-title">Cast to TV</span>
+                <span className="action-btn-subtitle">Smart TV / AirPlay / Chromecast</span>
+              </div>
+              <span className="cast-btn-badge" aria-hidden="true">Connect</span>
+            </button>
+
             {/* Primary Action: Download Video */}
             <a
               href={videoSrc}
@@ -214,13 +261,15 @@ export const InvitationVideoPage: React.FC<InvitationVideoPageProps> = ({
         </div>
       </div>
 
-      {/* Copy-link Toast Notification */}
+      {/* Copy-link / Cast Feedback Toast Notification */}
       {showToast && (
         <div className="share-toast-notification" role="status" aria-live="polite">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-            <polyline points="20 6 9 17 4 12" />
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
           </svg>
-          <span>Invitation link copied to clipboard!</span>
+          <span>{toastMessage}</span>
         </div>
       )}
     </div>

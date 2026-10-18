@@ -3,7 +3,8 @@ import './Footer.css';
 
 /**
  * Premium Islamic Arch Finial & Rosette Crest
- * Symmetrical 8-point Rub-el-Hizb star flanked by intricate arabesque filigree.
+ * Symmetrical 8-point Rub-el-Hizb star flanked by intricate arabesque filigree,
+ * elevated with champagne gold and subtle midnight-navy precision accents.
  */
 const OutroArchCrest: React.FC = () => {
   return (
@@ -17,9 +18,9 @@ const OutroArchCrest: React.FC = () => {
         <defs>
           <linearGradient id="crestGoldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#C5A059" stopOpacity="0" />
-            <stop offset="25%" stopColor="#C5A059" stopOpacity="0.5" />
+            <stop offset="25%" stopColor="#C5A059" stopOpacity="0.55" />
             <stop offset="50%" stopColor="#F5E4BE" stopOpacity="1" />
-            <stop offset="75%" stopColor="#C5A059" stopOpacity="0.5" />
+            <stop offset="75%" stopColor="#C5A059" stopOpacity="0.55" />
             <stop offset="100%" stopColor="#C5A059" stopOpacity="0" />
           </linearGradient>
 
@@ -27,6 +28,11 @@ const OutroArchCrest: React.FC = () => {
             <stop offset="0%" stopColor="#FBF4E4" />
             <stop offset="50%" stopColor="#E0C384" />
             <stop offset="100%" stopColor="#A8823E" />
+          </linearGradient>
+
+          <linearGradient id="midnightNavAcc" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#141C36" />
+            <stop offset="100%" stopColor="#0B132B" />
           </linearGradient>
 
           <filter id="goldGlow" x="-20%" y="-20%" width="140%" height="140%">
@@ -39,11 +45,11 @@ const OutroArchCrest: React.FC = () => {
         <line x1="20" y1="30" x2="115" y2="30" stroke="url(#crestGoldGrad)" strokeWidth="1" />
         <line x1="205" y1="30" x2="300" y2="30" stroke="url(#crestGoldGrad)" strokeWidth="1" />
 
-        {/* Ornamental Diamond Beads on wings */}
-        <rect x="55" y="28.5" width="3" height="3" fill="#C5A059" transform="rotate(45 56.5 30)" opacity="0.8" />
-        <rect x="85" y="28" width="4" height="4" fill="#E9D29A" transform="rotate(45 87 30)" />
-        <rect x="231" y="28" width="4" height="4" fill="#E9D29A" transform="rotate(45 233 30)" />
-        <rect x="262" y="28.5" width="3" height="3" fill="#C5A059" transform="rotate(45 263.5 30)" opacity="0.8" />
+        {/* Ornamental Diamond Beads on wings with midnight centers */}
+        <rect x="55" y="28.5" width="3" height="3" fill="#141C36" stroke="#C5A059" strokeWidth="0.5" transform="rotate(45 56.5 30)" opacity="0.85" />
+        <rect x="85" y="28" width="4" height="4" fill="#E9D29A" stroke="#141C36" strokeWidth="0.5" transform="rotate(45 87 30)" />
+        <rect x="231" y="28" width="4" height="4" fill="#E9D29A" stroke="#141C36" strokeWidth="0.5" transform="rotate(45 233 30)" />
+        <rect x="262" y="28.5" width="3" height="3" fill="#141C36" stroke="#C5A059" strokeWidth="0.5" transform="rotate(45 263.5 30)" opacity="0.85" />
 
         {/* Symmetrical Arabesque Crest Arches */}
         <path
@@ -59,26 +65,26 @@ const OutroArchCrest: React.FC = () => {
           strokeLinecap="round"
         />
 
-        {/* Lower Mirrored S-curves */}
+        {/* Lower Mirrored S-curves with subtle midnight shadow stroke */}
         <path
           d="M 125 30 C 135 30 142 38 150 38"
-          stroke="#C5A059"
-          strokeWidth="0.9"
-          strokeOpacity="0.7"
+          stroke="#141C36"
+          strokeWidth="0.8"
+          strokeOpacity="0.45"
           strokeLinecap="round"
         />
         <path
           d="M 195 30 C 185 30 178 38 170 38"
-          stroke="#C5A059"
-          strokeWidth="0.9"
-          strokeOpacity="0.7"
+          stroke="#141C36"
+          strokeWidth="0.8"
+          strokeOpacity="0.45"
           strokeLinecap="round"
         />
 
         {/* Central Rub-el-Hizb (Islamic 8-Point Star Medallion) */}
         <g transform="translate(160, 30)">
-          {/* Subtle Outer Aura Ring */}
-          <circle cx="0" cy="0" r="16" stroke="url(#crestGoldGrad)" strokeWidth="0.8" fill="none" opacity="0.6" />
+          {/* Subtle Outer Midnight Ring */}
+          <circle cx="0" cy="0" r="16" stroke="url(#midnightNavAcc)" strokeWidth="0.75" strokeOpacity="0.4" fill="none" />
           
           {/* Interlocking 8-Point Star Squares */}
           <rect
@@ -103,15 +109,15 @@ const OutroArchCrest: React.FC = () => {
             className="footer-crest-star-sq"
           />
 
-          {/* Central Luminous Core */}
+          {/* Central Luminous Core with Midnight-Navy Accent Center */}
           <circle cx="0" cy="0" r="3.5" fill="url(#starGoldFill)" filter="url(#goldGlow)" />
-          <circle cx="0" cy="0" r="1.5" fill="#FFFFFF" />
+          <circle cx="0" cy="0" r="1.5" fill="#0B132B" />
 
-          {/* Subtle Cardinal Accent Dots */}
-          <circle cx="0" cy="-12" r="1" fill="#C5A059" />
-          <circle cx="0" cy="12" r="1" fill="#C5A059" />
-          <circle cx="-12" cy="0" r="1" fill="#C5A059" />
-          <circle cx="12" cy="0" r="1" fill="#C5A059" />
+          {/* Cardinal Midnight Dots */}
+          <circle cx="0" cy="-12" r="1.1" fill="#141C36" />
+          <circle cx="0" cy="12" r="1.1" fill="#141C36" />
+          <circle cx="-12" cy="0" r="1.1" fill="#141C36" />
+          <circle cx="12" cy="0" r="1.1" fill="#141C36" />
         </g>
       </svg>
     </div>
@@ -133,9 +139,9 @@ const OutroMidDivider: React.FC = () => {
         <defs>
           <linearGradient id="midDivGold" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#C5A059" stopOpacity="0" />
-            <stop offset="35%" stopColor="#C5A059" stopOpacity="0.6" />
+            <stop offset="35%" stopColor="#C5A059" stopOpacity="0.65" />
             <stop offset="50%" stopColor="#E9D29A" stopOpacity="1" />
-            <stop offset="65%" stopColor="#C5A059" stopOpacity="0.6" />
+            <stop offset="65%" stopColor="#C5A059" stopOpacity="0.65" />
             <stop offset="100%" stopColor="#C5A059" stopOpacity="0" />
           </linearGradient>
         </defs>
@@ -156,17 +162,17 @@ const OutroMidDivider: React.FC = () => {
           />
           <path
             d="M -18 0 C -12 4 -6 4 0 1 C 6 4 12 4 18 0"
-            stroke="#C5A059"
+            stroke="#141C36"
             strokeWidth="0.75"
-            strokeOpacity="0.6"
+            strokeOpacity="0.5"
             strokeLinecap="round"
             fill="none"
           />
-          {/* Center Diamond Cluster */}
+          {/* Center Diamond Cluster with Midnight Center */}
           <rect x="-4" y="-4" width="8" height="8" fill="#F3E2B4" stroke="#9E7D3B" strokeWidth="0.8" transform="rotate(45)" />
           <circle cx="0" cy="0" r="1.5" fill="#0B132B" />
-          <circle cx="-10" cy="0" r="1.2" fill="#C5A059" />
-          <circle cx="10" cy="0" r="1.2" fill="#C5A059" />
+          <circle cx="-10" cy="0" r="1.2" fill="#141C36" />
+          <circle cx="10" cy="0" r="1.2" fill="#141C36" />
         </g>
       </svg>
     </div>
@@ -194,20 +200,24 @@ const CornerFlourish: React.FC<{ position: 'tl' | 'tr' | 'bl' | 'br' }> = ({ pos
         xmlns="http://www.w3.org/2000/svg"
         style={{ transform: getTransform() }}
       >
+        {/* Primary Gold Outer Contour */}
         <path
           d="M 3 29 L 3 11 C 3 6.5 6.5 3 11 3 L 29 3"
           stroke="#C5A059"
           strokeWidth="1"
           strokeLinecap="round"
-          strokeOpacity="0.5"
+          strokeOpacity="0.65"
         />
-        <circle cx="11" cy="11" r="2" fill="#C5A059" fillOpacity="0.7" />
+        {/* Inner Midnight Navy Accent Line */}
         <path
-          d="M 3 16 C 7 16 16 7 16 3"
-          stroke="#C5A059"
+          d="M 6 29 L 6 13 C 6 9 9 6 13 6 L 29 6"
+          stroke="#141C36"
           strokeWidth="0.6"
           strokeOpacity="0.3"
+          strokeLinecap="round"
         />
+        <circle cx="11" cy="11" r="2" fill="#C5A059" fillOpacity="0.8" />
+        <circle cx="11" cy="11" r="0.8" fill="#0B132B" />
       </svg>
     </div>
   );
@@ -278,7 +288,7 @@ export const Footer: React.FC = () => {
 
         {/* Sophisticated Editorial Family Sign-off Block */}
         <div className="footer-compliments-section">
-          {/* Refined Eyebrow Badge */}
+          {/* Refined Eyebrow Badge with Midnight Navy & Gold Touch */}
           <div className="footer-compliments-kicker-wrapper">
             <span className="footer-kicker-flourish" aria-hidden="true">❦</span>
             <span className="footer-compliments-eyebrow">
@@ -307,7 +317,7 @@ export const Footer: React.FC = () => {
           </h3>
         </div>
 
-        {/* Delicate Champagne Gold Mid-Divider */}
+        {/* Delicate Champagne Gold Mid-Divider with Navy Accents */}
         <OutroMidDivider />
 
         {/* Creator Signature Seal Block */}
@@ -318,6 +328,7 @@ export const Footer: React.FC = () => {
             <span className="footer-kicker-sparkle" aria-hidden="true">✧</span>
           </div>
 
+          {/* Existing SAAD KAZI link kept unchanged */}
           <a
             href={portfolioUrl}
             target="_blank"
@@ -341,9 +352,17 @@ export const Footer: React.FC = () => {
             </svg>
           </a>
 
-          <p className="footer-creator-role">
-            Bespoke Digital Invitations &amp; Experiences
-          </p>
+          {/* Replaced old tagline with elegant, accessible clickable text opening exact portfolio URL */}
+          <a
+            href={portfolioUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="footer-creator-details-link"
+            aria-label="Click for My Details - Saad Kazi Portfolio (opens in a new tab)"
+          >
+            <span>Click for My Details</span>
+            <span className="footer-details-arrow" aria-hidden="true">↗</span>
+          </a>
         </div>
 
         {/* Action Link Pills Bar (WhatsApp & Instagram) */}

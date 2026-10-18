@@ -1,0 +1,375 @@
+/* ========================================================
+   WEDDING INVITATION FILM SECTION (MAIN INVITATION FLOW)
+   Luxury 16:9 Landscape Video Section with Islamic Arch Framing
+   ======================================================== */
+
+.wedding-film-section {
+  position: relative;
+  width: 100%;
+  padding: var(--space-2xl) var(--space-md);
+  background: radial-gradient(
+    circle at 50% 30%,
+    var(--color-cream-50) 0%,
+    var(--color-cream-100) 65%,
+    var(--color-cream-200) 100%
+  );
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* Outer Arch Casing Frame */
+.wedding-film-arch-casing {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  border-radius: 96px 96px 28px 28px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 254, 250, 0.96) 0%,
+    rgba(250, 246, 238, 0.9) 60%,
+    rgba(243, 235, 221, 0.94) 100%
+  );
+  box-shadow: 
+    0 12px 38px rgba(11, 19, 43, 0.06),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  padding: var(--space-xl) var(--space-md) var(--space-xl) var(--space-md);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+/* Inset Dashed Border */
+.wedding-film-inner-border {
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(197, 160, 89, 0.28);
+  border-radius: 90px 90px 22px 22px;
+  pointer-events: none;
+}
+
+/* --- Section Header --- */
+.wedding-film-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--space-lg);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.wedding-film-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(197, 160, 89, 0.1);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  margin-bottom: var(--space-2xs);
+}
+
+.film-kicker-sparkle {
+  font-size: 0.65rem;
+  color: var(--color-gold-base);
+}
+
+.film-kicker-text {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-gold-dark);
+}
+
+.wedding-film-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--color-midnight-900);
+  letter-spacing: 0.05em;
+  line-height: 1.25;
+  margin: var(--space-2xs) 0 var(--space-xs) 0;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.wedding-film-subtitle {
+  font-family: var(--font-serif-body);
+  font-size: 0.92rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-midnight-700);
+  line-height: 1.45;
+  margin: var(--space-xs) 0 0 0;
+  max-width: 340px;
+  opacity: 0.85;
+}
+
+/* --- Player Container --- */
+.wedding-film-player-container {
+  width: 100%;
+  margin-bottom: var(--space-md);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 10px 30px rgba(11, 19, 43, 0.15);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* --- Watch Full Video CTA --- */
+.wedding-film-primary-action {
+  width: 100%;
+  margin-bottom: var(--space-sm);
+  position: relative;
+  z-index: 2;
+}
+
+.film-watch-full-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #1C2541 0%, #0B132B 100%);
+  border: 1.5px solid rgba(197, 160, 89, 0.7);
+  border-radius: 14px;
+  color: #FFFDF9;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 
+    0 8px 24px rgba(11, 19, 43, 0.18),
+    0 0 14px rgba(197, 160, 89, 0.2);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+  touch-action: manipulation;
+}
+
+.film-watch-full-btn:hover,
+.film-watch-full-btn:focus-visible {
+  transform: translateY(-2px);
+  border-color: #E9D29A;
+  box-shadow: 
+    0 12px 30px rgba(11, 19, 43, 0.25),
+    0 0 20px rgba(197, 160, 89, 0.35);
+  outline: none;
+}
+
+.film-watch-full-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.film-watch-icon-box {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 10px;
+  background: rgba(197, 160, 89, 0.18);
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F3E2B4;
+  margin-right: 12px;
+}
+
+.film-watch-icon-box svg {
+  width: 18px;
+  height: 18px;
+}
+
+.film-watch-texts {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+}
+
+.film-watch-title {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #FFFDF9;
+  line-height: 1.25;
+}
+
+.film-watch-sub {
+  font-family: var(--font-serif-body);
+  font-size: 0.72rem;
+  font-style: italic;
+  color: rgba(243, 226, 180, 0.9);
+  line-height: 1.2;
+}
+
+.film-watch-arrow {
+  width: 18px;
+  height: 18px;
+  color: var(--color-gold-base);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.film-watch-full-btn:hover .film-watch-arrow {
+  transform: translateX(3px);
+  color: #F3E2B4;
+}
+
+/* --- Secondary Action Pills (Download, Share, WhatsApp) --- */
+.wedding-film-actions-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.film-action-capsule {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.92);
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  color: var(--color-midnight-900);
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(11, 19, 43, 0.04);
+  transition: all 0.25s ease;
+  touch-action: manipulation;
+  min-height: 38px;
+  box-sizing: border-box;
+}
+
+.film-action-capsule svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  color: var(--color-gold-dark);
+}
+
+.film-action-capsule:hover {
+  background: #FFFDF9;
+  border-color: var(--color-gold-dark);
+  color: var(--color-gold-dark);
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(197, 160, 89, 0.25);
+}
+
+.film-action-capsule:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.film-whatsapp-capsule:hover {
+  border-color: #25D366;
+  color: #128C7E;
+}
+
+.film-whatsapp-capsule:hover svg {
+  color: #25D366;
+}
+
+/* --- Toast Notification --- */
+.film-toast-notification {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(11, 19, 43, 0.94);
+  border: 1px solid var(--color-gold-base);
+  color: #FFFDF9;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  z-index: 1000;
+  animation: filmToastFadeIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  max-width: 90vw;
+  text-align: center;
+}
+
+.film-toast-notification svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-gold-light);
+  flex-shrink: 0;
+}
+
+@keyframes filmToastFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 15px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* --- Entrance Animation --- */
+.wedding-film-arch-casing {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wedding-film-section.is-in-view .wedding-film-arch-casing {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 360px) {
+  .wedding-film-arch-casing {
+    padding: var(--space-lg) var(--space-xs);
+    border-radius: 72px 72px 22px 22px;
+  }
+
+  .wedding-film-title {
+    font-size: 1.35rem;
+  }
+
+  .wedding-film-actions-grid {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .film-action-capsule {
+    width: 100%;
+  }
+}
+
+/* --- Prefers-reduced-motion --- */
+@media (prefers-reduced-motion: reduce) {
+  .wedding-film-arch-casing {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

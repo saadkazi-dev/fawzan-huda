@@ -1,6 +1,7 @@
 /* ========================================================
    CINEMATIC LUXURY ISLAMIC WEDDING OUTRO & CREATOR FINALE
    Phase 10 — Luxury Editorial Islamic Outro
+   Refined Warm Ivory / Champagne Theme with Midnight-Navy Accents
    ======================================================== */
 
 .invitation-footer-container {
@@ -8,8 +9,8 @@
   width: 100%;
   padding: var(--space-2xl) var(--space-md) var(--space-lg) var(--space-md);
   background: 
-    radial-gradient(ellipse 110% 70% at 50% 0%, #FFFFFF 0%, #FAF6EE 35%, #F4ECE0 70%, #E8DCC8 100%);
-  border-top: 1px solid rgba(197, 160, 89, 0.4);
+    radial-gradient(ellipse 115% 75% at 50% 0%, #FAF4E8 0%, #F5EBD8 35%, #EADECA 70%, #DFD0B6 100%);
+  border-top: 1px solid rgba(197, 160, 89, 0.45);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -29,7 +30,9 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(197, 160, 89, 0.8) 50%,
+    rgba(20, 28, 54, 0.25) 20%,
+    rgba(197, 160, 89, 0.85) 50%,
+    rgba(20, 28, 54, 0.25) 80%,
     transparent 100%
   );
   pointer-events: none;
@@ -40,8 +43,8 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.038;
-  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 4 L34 22 L52 28 L34 34 L28 52 L22 34 L4 28 L22 22 Z' fill='none' stroke='%23C5A059' stroke-width='0.8'/%3E%3Ccircle cx='28' cy='28' r='7' fill='none' stroke='%23C5A059' stroke-width='0.6'/%3E%3C/svg%3E");
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 4 L34 22 L52 28 L34 34 L28 52 L22 34 L4 28 L22 22 Z' fill='none' stroke='%23C5A059' stroke-width='0.8'/%3E%3Ccircle cx='28' cy='28' r='7' fill='none' stroke='%230B132B' stroke-width='0.5'/%3E%3C/svg%3E");
   background-repeat: repeat;
   z-index: 0;
 }
@@ -56,16 +59,16 @@
   max-width: 440px;
   background: linear-gradient(
     180deg,
-    rgba(255, 254, 251, 0.96) 0%,
-    rgba(252, 248, 239, 0.94) 50%,
-    rgba(246, 238, 224, 0.95) 100%
+    rgba(252, 247, 238, 0.98) 0%,
+    rgba(247, 240, 227, 0.95) 50%,
+    rgba(240, 230, 212, 0.96) 100%
   );
-  border: 1px solid rgba(197, 160, 89, 0.45);
+  border: 1px solid rgba(20, 28, 54, 0.2);
   border-radius: 72px 72px 28px 28px;
   box-shadow:
-    0 16px 40px rgba(11, 19, 43, 0.06),
-    0 2px 10px rgba(197, 160, 89, 0.12),
-    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+    0 16px 42px rgba(11, 19, 43, 0.08),
+    0 2px 10px rgba(197, 160, 89, 0.16),
+    inset 0 1px 2px rgba(255, 255, 255, 0.85);
   padding: var(--space-xl) var(--space-md) var(--space-xl) var(--space-md);
   box-sizing: border-box;
   display: flex;
@@ -82,7 +85,7 @@
 .footer-card-inner-frame {
   position: absolute;
   inset: 7px;
-  border: 1px dashed rgba(197, 160, 89, 0.28);
+  border: 1px dashed rgba(197, 160, 89, 0.42);
   border-radius: 66px 66px 22px 22px;
   pointer-events: none;
 }
@@ -141,7 +144,7 @@
   width: 100%;
 }
 
-/* Refined Eyebrow Badge */
+/* Refined Eyebrow Badge with Midnight Navy & Gold Touch */
 .footer-compliments-kicker-wrapper {
   display: inline-flex;
   align-items: center;
@@ -149,8 +152,8 @@
   gap: 8px;
   padding: 4px 14px;
   border-radius: 999px;
-  background: rgba(197, 160, 89, 0.08);
-  border: 1px solid rgba(197, 160, 89, 0.28);
+  background: rgba(20, 28, 54, 0.05);
+  border: 1px solid rgba(20, 28, 54, 0.16);
   margin-bottom: var(--space-2xs);
 }
 
@@ -158,14 +161,14 @@
   font-size: 0.75rem;
   color: var(--color-gold-base);
   line-height: 1;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .footer-compliments-eyebrow {
   font-family: var(--font-sans);
   font-size: 0.65rem;
-  font-weight: 600;
-  color: var(--color-gold-dark);
+  font-weight: 700;
+  color: #141C36;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   margin: 0;
@@ -178,16 +181,16 @@
   font-size: 0.9rem;
   font-style: italic;
   font-weight: 400;
-  color: var(--color-midnight-700);
+  color: #1C2541;
   margin: 4px 0 var(--space-sm) 0;
-  opacity: 0.82;
+  opacity: 0.88;
   letter-spacing: 0.02em;
 }
 
 /* Locked Family Name Typography */
 .footer-compliments-family {
   font-family: var(--font-serif-display);
-  color: var(--color-midnight-900);
+  color: #0B132B;
   margin: 0;
   display: flex;
   flex-direction: column;
@@ -207,8 +210,8 @@
   font-size: 1.18rem;
   font-weight: 700;
   letter-spacing: 0.09em;
-  color: var(--color-midnight-900);
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+  color: #0B132B;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
 }
 
 .family-ampersand-bridge {
@@ -227,7 +230,9 @@
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(197, 160, 89, 0.6) 50%,
+    rgba(20, 28, 54, 0.25) 25%,
+    rgba(197, 160, 89, 0.7) 50%,
+    rgba(20, 28, 54, 0.25) 75%,
     transparent 100%
   );
 }
@@ -238,15 +243,15 @@
   font-style: italic;
   font-weight: 500;
   color: var(--color-gold-base);
-  text-shadow: 0 1px 4px rgba(197, 160, 89, 0.35);
+  text-shadow: 0 1px 3px rgba(11, 19, 43, 0.12);
 }
 
 .family-line.family-secondary {
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.14em;
-  color: var(--color-midnight-800);
-  opacity: 0.92;
+  color: #141C36;
+  opacity: 0.95;
 }
 
 /* ========================================================
@@ -278,17 +283,24 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
   position: relative;
   z-index: 2;
   margin-top: var(--space-xs);
-  padding: var(--space-xs) var(--space-md);
+  padding: 10px var(--space-md) 12px;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.45);
-  border: 1px solid rgba(197, 160, 89, 0.2);
+  background: linear-gradient(
+    180deg,
+    rgba(246, 239, 224, 0.85) 0%,
+    rgba(240, 232, 214, 0.75) 100%
+  );
+  border: 1px solid rgba(20, 28, 54, 0.16);
   width: 100%;
   max-width: 340px;
   box-sizing: border-box;
+  box-shadow: 
+    0 4px 16px rgba(11, 19, 43, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.75);
 }
 
 .footer-signature-kicker-wrap {
@@ -300,17 +312,17 @@
 .footer-kicker-sparkle {
   font-size: 0.55rem;
   color: var(--color-gold-base);
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .footer-signature-label {
   font-family: var(--font-sans);
   font-size: 0.6rem;
-  font-weight: 600;
-  color: var(--color-midnight-700);
+  font-weight: 700;
+  color: #0B132B;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 .footer-signature-name-link {
@@ -320,7 +332,7 @@
   font-family: var(--font-serif-display);
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-midnight-900);
+  color: #0B132B;
   letter-spacing: 0.14em;
   text-decoration: none;
   position: relative;
@@ -337,9 +349,9 @@
   height: 1.5px;
   background: linear-gradient(
     90deg,
-    rgba(197, 160, 89, 0.2) 0%,
+    rgba(20, 28, 54, 0.2) 0%,
     var(--color-gold-base) 50%,
-    rgba(197, 160, 89, 0.2) 100%
+    rgba(20, 28, 54, 0.2) 100%
   );
   transition: width 0.35s ease, left 0.35s ease;
   border-radius: 2px;
@@ -351,7 +363,7 @@
   color: var(--color-gold-base);
   transform: translate(0, 0);
   transition: transform 0.35s ease, color 0.35s ease;
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .footer-signature-name-link:hover {
@@ -369,14 +381,47 @@
   opacity: 1;
 }
 
-.footer-creator-role {
-  font-family: var(--font-serif-body);
-  font-size: 0.8125rem;
-  font-style: italic;
-  color: var(--color-midnight-600);
-  margin: 0;
-  letter-spacing: 0.02em;
-  opacity: 0.8;
+/* Click for My Details Link */
+.footer-creator-details-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: #141C36;
+  text-decoration: none;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(20, 28, 54, 0.05);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  margin-top: 2px;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  touch-action: manipulation;
+}
+
+.footer-creator-details-link:hover,
+.footer-creator-details-link:focus-visible {
+  background: #141C36;
+  color: #FAF4E8;
+  border-color: #141C36;
+  transform: translateY(-1.5px);
+  box-shadow: 
+    0 4px 14px rgba(11, 19, 43, 0.2),
+    0 0 8px rgba(197, 160, 89, 0.3);
+  outline: none;
+}
+
+.footer-details-arrow {
+  font-size: 0.82rem;
+  color: var(--color-gold-base);
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-creator-details-link:hover .footer-details-arrow {
+  transform: translate(2px, -2px);
+  color: #F5E4BE;
 }
 
 /* ========================================================
@@ -404,15 +449,15 @@
   border-radius: 999px;
   background: linear-gradient(
     135deg,
-    rgba(255, 254, 252, 0.95) 0%,
-    rgba(250, 245, 235, 0.9) 100%
+    rgba(254, 250, 242, 0.98) 0%,
+    rgba(246, 239, 226, 0.94) 100%
   );
-  border: 1px solid rgba(197, 160, 89, 0.45);
-  color: var(--color-midnight-900);
+  border: 1px solid rgba(197, 160, 89, 0.5);
+  color: #0B132B;
   text-decoration: none;
   box-shadow:
     0 3px 12px rgba(11, 19, 43, 0.05),
-    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+    inset 0 1px 1px rgba(255, 255, 255, 0.85);
   position: relative;
   overflow: hidden;
   transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
@@ -445,8 +490,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(197, 160, 89, 0.12);
-  border: 1px solid rgba(197, 160, 89, 0.3);
+  background: rgba(197, 160, 89, 0.15);
+  border: 1px solid rgba(197, 160, 89, 0.35);
   flex-shrink: 0;
   transition: all 0.3s ease;
 }
@@ -454,7 +499,7 @@
 .social-svg-icon {
   width: 15px;
   height: 15px;
-  color: var(--color-midnight-900);
+  color: #0B132B;
   transition: all 0.3s ease;
 }
 
@@ -472,7 +517,7 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--color-midnight-900);
+  color: #0B132B;
   transition: color 0.3s ease;
 }
 
@@ -480,7 +525,7 @@
   font-family: var(--font-serif-body);
   font-size: 0.72rem;
   font-style: italic;
-  color: var(--color-midnight-600);
+  color: #1C2541;
   opacity: 0.85;
 }
 
@@ -490,7 +535,7 @@
   background: linear-gradient(
     135deg,
     #FFFFFF 0%,
-    var(--color-cream-50) 100%
+    #F8F0DE 100%
   );
   border-color: var(--color-gold-base);
   box-shadow:
@@ -552,8 +597,8 @@
   margin-top: var(--space-xl);
   padding: 6px 18px;
   border-radius: 999px;
-  background: rgba(11, 19, 43, 0.05);
-  border: 1px solid rgba(197, 160, 89, 0.25);
+  background: rgba(11, 19, 43, 0.07);
+  border: 1px solid rgba(20, 28, 54, 0.2);
   z-index: 2;
   position: relative;
 }
@@ -561,7 +606,7 @@
 .footer-grounding-ornament {
   font-size: 0.55rem;
   color: var(--color-gold-base);
-  opacity: 0.8;
+  opacity: 0.85;
 }
 
 .footer-grounding-text {
@@ -570,8 +615,8 @@
   font-weight: 600;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-midnight-700);
-  opacity: 0.85;
+  color: #0B132B;
+  opacity: 0.9;
 }
 
 /* ========================================================

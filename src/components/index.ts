@@ -7,6 +7,7 @@ export * from './scratch';
 export * from './nikah';
 export * from './reception';
 export * from './dua';
+export * from './wedding-film';
 export * from './footer';
 export * from './ui';
 

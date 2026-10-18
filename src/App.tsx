@@ -54,7 +54,10 @@ function App() {
       )}
 
       {stage === 'hero-mount' && (
-        <HeroMountPoint onReplay={() => setStage('preloader')} />
+        <HeroMountPoint
+          onReplay={() => setStage('preloader')}
+          onNavigateToVideo={() => navigateTo('/invitation-video')}
+        />
       )}
     </AppLayout>
   );

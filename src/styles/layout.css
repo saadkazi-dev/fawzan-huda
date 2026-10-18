@@ -119,6 +119,17 @@ body.opening-stage-active {
     max-height: 100dvh;
     height: 100dvh;
   }
+
+  /* During hero-mount (main invitation flow) on desktop, allow natural full-page scrolling */
+  .app-viewport.stage-hero-mount {
+    align-items: flex-start;
+  }
+
+  .app-viewport.stage-hero-mount .app-wrapper {
+    max-height: none;
+    height: auto;
+    overflow: visible;
+  }
 }
 
 @media (min-width: 992px) {

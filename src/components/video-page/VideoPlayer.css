@@ -90,16 +90,14 @@
   border-bottom-right-radius: 5px;
 }
 
-/* Center Big Play / Replay Button */
+/* Center Big Play / Replay Button (Unwanted overlay removed: crystal clear video visibility) */
 .player-center-overlay {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(11, 19, 43, 0.28);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  background: transparent;
   z-index: 6;
   transition: opacity 0.3s ease, visibility 0.3s ease;
   pointer-events: none;
