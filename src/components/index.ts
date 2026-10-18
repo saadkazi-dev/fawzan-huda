@@ -9,6 +9,7 @@ export * from './reception';
 export * from './dua';
 export * from './wedding-film';
 export * from './footer';
+export * from './guest';
 export * from './ui';
 
 

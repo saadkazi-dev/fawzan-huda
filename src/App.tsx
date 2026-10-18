@@ -4,6 +4,7 @@ import { Preloader } from '@/components/preloader';
 import { OpeningVideo } from '@/components/video';
 import { HeroMountPoint } from '@/components/hero';
 import { InvitationVideoPage } from '@/components/video-page';
+import { GuestAccessCard } from '@/components/guest';
 import type { InvitationStage } from '@/types';
 
 function App() {
@@ -31,6 +32,18 @@ function App() {
   };
 
   const isVideoPage = currentPath === '/invitation-video';
+  const isGuestPage = currentPath === '/guest';
+
+  if (isGuestPage) {
+    return (
+      <AppLayout stage="hero-mount" className="guest-card-app-wrapper">
+        <GuestAccessCard
+          onOpenInvitation={() => navigateTo('/')}
+          onWatchFilm={() => navigateTo('/invitation-video')}
+        />
+      </AppLayout>
+    );
+  }
 
   if (isVideoPage) {
     return (

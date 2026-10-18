@@ -1,0 +1,543 @@
+/* ========================================================
+   WEDDING GUEST ACCESS CARD STYLES (/guest)
+   Mobile-First Luxury Islamic Wedding VIP Access Card
+   ======================================================== */
+
+.app-wrapper.guest-card-app-wrapper {
+  max-height: none !important;
+  height: auto !important;
+  overflow-y: auto !important;
+  transition: max-width 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .app-wrapper.guest-card-app-wrapper {
+    max-width: 520px !important;
+  }
+}
+
+.guest-card-page-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    ellipse 120% 80% at 50% 10%,
+    #FAF4E8 0%,
+    #F4EBD7 45%,
+    #E8DCBE 80%,
+    #DFCEAB 100%
+  );
+  padding: 16px 14px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+@media (min-width: 576px) {
+  .guest-card-page-container {
+    padding: 24px 20px;
+  }
+}
+
+/* Background Sacred Islamic Geometric Watermark */
+.guest-card-watermark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 4 L34 22 L52 28 L34 34 L28 52 L22 34 L4 28 L22 22 Z' fill='none' stroke='%23C5A059' stroke-width='0.8'/%3E%3Ccircle cx='28' cy='28' r='7' fill='none' stroke='%230B132B' stroke-width='0.5'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  z-index: 0;
+}
+
+/* Main Luxury Guest Access Card */
+.guest-access-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 253, 248, 0.98) 0%,
+    rgba(250, 245, 234, 0.96) 50%,
+    rgba(244, 235, 218, 0.98) 100%
+  );
+  border: 1.5px solid rgba(197, 160, 89, 0.55);
+  border-radius: 40px;
+  box-shadow: 
+    0 18px 46px rgba(11, 19, 43, 0.1),
+    0 3px 12px rgba(197, 160, 89, 0.18),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  padding: 24px 20px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: guestCardFadeIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@media (min-width: 576px) {
+  .guest-access-card {
+    border-radius: 48px;
+    padding: 30px 24px 24px;
+  }
+}
+
+/* Inset Dashed Frame */
+.guest-card-inset-border {
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(197, 160, 89, 0.35);
+  border-radius: 34px;
+  pointer-events: none;
+}
+
+@media (min-width: 576px) {
+  .guest-card-inset-border {
+    border-radius: 42px;
+  }
+}
+
+/* Corner Accents */
+.guest-card-corner {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: #C5A059;
+  border-style: solid;
+  pointer-events: none;
+}
+
+.corner-tl { top: 12px; left: 12px; border-width: 1.5px 0 0 1.5px; border-top-left-radius: 4px; }
+.corner-tr { top: 12px; right: 12px; border-width: 1.5px 1.5px 0 0; border-top-right-radius: 4px; }
+.corner-bl { bottom: 12px; left: 12px; border-width: 0 0 1.5px 1.5px; border-bottom-left-radius: 4px; }
+.corner-br { bottom: 12px; right: 12px; border-width: 0 1.5px 1.5px 0; border-bottom-right-radius: 4px; }
+
+/* --- Header Section --- */
+.guest-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.guest-bismillah {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: 1.15rem;
+  color: var(--color-midnight-900);
+  line-height: 1.3;
+  margin-bottom: 8px;
+  opacity: 0.95;
+}
+
+.guest-eyebrow-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: rgba(20, 28, 54, 0.05);
+  border: 1px solid rgba(20, 28, 54, 0.18);
+  margin-bottom: 8px;
+}
+
+.eyebrow-sparkle {
+  font-size: 0.55rem;
+  color: var(--color-gold-base);
+}
+
+.eyebrow-text {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #141C36;
+}
+
+.guest-couple-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0B132B;
+  margin: 4px 0 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+}
+
+.couple-amp {
+  font-family: var(--font-serif-display);
+  font-size: 1.35rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-gold-base);
+}
+
+.guest-family-lineage {
+  margin: 2px 0 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lineage-line {
+  font-family: var(--font-serif-body);
+  font-size: 0.82rem;
+  color: #1C2541;
+  margin: 0;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+
+.lineage-line strong {
+  color: #0B132B;
+  font-weight: 600;
+}
+
+.guest-date-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(197, 160, 89, 0.16) 0%, rgba(197, 160, 89, 0.06) 100%);
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  margin: 6px 0 10px 0;
+}
+
+.date-calendar-icon {
+  width: 14px;
+  height: 14px;
+  color: var(--color-gold-dark);
+}
+
+.date-text {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #0B132B;
+}
+
+/* --- Schedule Dual Cards --- */
+.guest-schedule-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.guest-event-card {
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(197, 160, 89, 0.32);
+  text-align: left;
+  box-shadow: 0 2px 8px rgba(11, 19, 43, 0.03);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.event-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
+}
+
+.event-tag {
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.nikah-tag {
+  color: #0B132B;
+  background: rgba(197, 160, 89, 0.22);
+  border: 1px solid rgba(197, 160, 89, 0.45);
+}
+
+.reception-tag {
+  color: #141C36;
+  background: rgba(20, 28, 54, 0.08);
+  border: 1px solid rgba(20, 28, 54, 0.2);
+}
+
+.event-time {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #0B132B;
+}
+
+.event-venue-name {
+  font-family: var(--font-serif-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #0B132B;
+  margin: 3px 0 2px 0;
+  line-height: 1.25;
+}
+
+.event-venue-address {
+  font-family: var(--font-serif-body);
+  font-size: 0.78rem;
+  color: #4A5568;
+  margin: 0;
+  line-height: 1.3;
+}
+
+/* --- Quick Actions Section --- */
+.guest-actions-section {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.guest-actions-label {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #141C36;
+  margin: 0 0 10px 0;
+  opacity: 0.85;
+}
+
+.guest-actions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.guest-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  touch-action: manipulation;
+  min-height: 52px;
+}
+
+.action-icon-circle {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.action-icon-circle svg {
+  width: 18px;
+  height: 18px;
+}
+
+.action-text-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+  line-height: 1.2;
+}
+
+.action-heading {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.action-subtext {
+  font-family: var(--font-serif-body);
+  font-size: 0.72rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.action-arrow {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.guest-action-btn:hover .action-arrow {
+  transform: translateX(3px);
+}
+
+.guest-action-btn:active {
+  transform: scale(0.98);
+}
+
+/* 1. Nikah Location Style */
+.action-map-nikah {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 241, 228, 0.9) 100%);
+  border: 1.5px solid rgba(197, 160, 89, 0.55);
+  color: #0B132B;
+  box-shadow: 0 4px 14px rgba(11, 19, 43, 0.05);
+}
+
+.action-map-nikah .action-icon-circle {
+  background: rgba(197, 160, 89, 0.18);
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  color: var(--color-gold-dark);
+}
+
+.action-map-nikah .action-heading { color: #0B132B; }
+.action-map-nikah .action-subtext { color: #1C2541; }
+.action-map-nikah .action-arrow { color: var(--color-gold-base); }
+
+.action-map-nikah:hover {
+  border-color: var(--color-gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.24);
+}
+
+/* 2. Reception Location Style */
+.action-map-reception {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(246, 239, 226, 0.9) 100%);
+  border: 1.5px solid rgba(197, 160, 89, 0.55);
+  color: #0B132B;
+  box-shadow: 0 4px 14px rgba(11, 19, 43, 0.05);
+}
+
+.action-map-reception .action-icon-circle {
+  background: rgba(197, 160, 89, 0.18);
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  color: var(--color-gold-dark);
+}
+
+.action-map-reception .action-heading { color: #0B132B; }
+.action-map-reception .action-subtext { color: #1C2541; }
+.action-map-reception .action-arrow { color: var(--color-gold-base); }
+
+.action-map-reception:hover {
+  border-color: var(--color-gold-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(197, 160, 89, 0.24);
+}
+
+/* 3. Open Wedding Invitation Style (Midnight Navy Hero Button) */
+.action-invitation-main {
+  background: linear-gradient(135deg, #1C2541 0%, #0B132B 100%);
+  border: 1.5px solid rgba(197, 160, 89, 0.7);
+  color: #FFFDF9;
+  box-shadow: 0 6px 18px rgba(11, 19, 43, 0.2), 0 0 12px rgba(197, 160, 89, 0.15);
+}
+
+.action-invitation-main .action-icon-circle {
+  background: rgba(197, 160, 89, 0.2);
+  border: 1px solid rgba(197, 160, 89, 0.5);
+  color: #F3E2B4;
+}
+
+.action-invitation-main .action-heading { color: #FFFDF9; }
+.action-invitation-main .action-subtext { color: rgba(243, 226, 180, 0.9); }
+.action-invitation-main .action-arrow { color: var(--color-gold-base); }
+
+.action-invitation-main:hover {
+  border-color: #E9D29A;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(11, 19, 43, 0.3), 0 0 18px rgba(197, 160, 89, 0.3);
+}
+
+/* 4. Watch Wedding Film Style (Champagne Gold Highlight Button) */
+.action-wedding-film {
+  background: linear-gradient(135deg, #241D3B 0%, #120E22 100%);
+  border: 1.5px solid rgba(197, 160, 89, 0.65);
+  color: #FFFDF9;
+  box-shadow: 0 6px 18px rgba(11, 19, 43, 0.15);
+}
+
+.action-wedding-film .action-icon-circle {
+  background: rgba(197, 160, 89, 0.22);
+  border: 1px solid rgba(197, 160, 89, 0.5);
+  color: #F3E2B4;
+}
+
+.action-wedding-film .action-heading { color: #FFFDF9; }
+.action-wedding-film .action-subtext { color: rgba(243, 226, 180, 0.9); }
+.action-wedding-film .action-arrow { color: var(--color-gold-base); }
+
+.action-wedding-film:hover {
+  border-color: #E9D29A;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(11, 19, 43, 0.25), 0 0 16px rgba(197, 160, 89, 0.25);
+}
+
+/* --- Footer Compliments --- */
+.guest-card-footer {
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(197, 160, 89, 0.3);
+  width: 100%;
+}
+
+.guest-compliments-text {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #141C36;
+  line-height: 1.45;
+  margin: 0;
+  opacity: 0.88;
+}
+
+.guest-compliments-text strong {
+  font-family: var(--font-serif-display);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #0B132B;
+}
+
+/* Keyframes */
+@keyframes guestCardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .guest-access-card {
+    animation: none !important;
+  }
+  .guest-action-btn {
+    transition: none !important;
+    transform: none !important;
+  }
+}
