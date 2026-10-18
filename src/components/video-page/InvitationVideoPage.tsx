@@ -10,42 +10,14 @@ export const InvitationVideoPage: React.FC<InvitationVideoPageProps> = ({
   onNavigateHome,
 }) => {
   const [showToast, setShowToast] = useState<boolean>(false);
-  const videoSrc =
-    (import.meta.env.VITE_INVITATION_VIDEO_URL as string | undefined)?.trim() ||
-    '/videos/wedding-invitation.mp4';
+  const videoSrc = '/videos/wedding-invitation.mp4';
   const downloadFileName = 'Fawzan-and-Huda-Wedding-Invitation.mp4';
-
-  const handleDownload = async (e: React.MouseEvent<HTMLAnchorElement>) => {
-    // For relative / same-origin URLs, default browser anchor download works
-    if (!videoSrc.startsWith('http://') && !videoSrc.startsWith('https://')) {
-      return;
-    }
-
-    // For external URLs, attempt blob download to ensure filename is respected
-    try {
-      e.preventDefault();
-      const res = await fetch(videoSrc, { mode: 'cors' });
-      if (!res.ok) throw new Error('Blob fetch failed');
-      const blob = await res.blob();
-      const blobUrl = URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = blobUrl;
-      link.download = downloadFileName;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(blobUrl);
-    } catch {
-      // Fallback to navigating/opening the remote URL
-      window.open(videoSrc, '_blank');
-    }
-  };
 
   const handleShare = async () => {
     const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
     const shareData = {
       title: 'The Wedding Invitation of Fawzan & Huda',
-      text: 'Celebrate with us! Watch the wedding invitation video of Fawzan & Huda.',
+      text: 'Celebrate with us! Watch the official wedding invitation video of Fawzan & Huda.',
       url: currentUrl,
     };
 
@@ -63,7 +35,6 @@ export const InvitationVideoPage: React.FC<InvitationVideoPageProps> = ({
       if (navigator.clipboard && navigator.clipboard.writeText) {
         await navigator.clipboard.writeText(currentUrl);
       } else {
-        // Fallback for older browsers
         const textarea = document.createElement('textarea');
         textarea.value = currentUrl;
         textarea.style.position = 'fixed';
@@ -141,7 +112,7 @@ export const InvitationVideoPage: React.FC<InvitationVideoPageProps> = ({
             </div>
           </header>
 
-          {/* HTML5 Luxury Video Player */}
+          {/* HTML5 Luxury 16:9 Landscape Video Player */}
           <main className="video-player-wrapper">
             <VideoPlayer src={videoSrc} />
           </main>
@@ -152,7 +123,6 @@ export const InvitationVideoPage: React.FC<InvitationVideoPageProps> = ({
             <a
               href={videoSrc}
               download={downloadFileName}
-              onClick={handleDownload}
               className="action-btn-primary"
               aria-label="Download Invitation Video in original MP4 quality"
             >
@@ -166,7 +136,7 @@ export const InvitationVideoPage: React.FC<InvitationVideoPageProps> = ({
                 </div>
                 <div className="action-btn-texts">
                   <span className="action-btn-title">Download Video</span>
-                  <span className="action-btn-subtitle">Original Full HD MP4 (1080p)</span>
+                  <span className="action-btn-subtitle">Original Full HD MP4 (720p HD)</span>
                 </div>
               </div>
 

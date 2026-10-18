@@ -27,7 +27,3 @@ dist-ssr
 .env
 .env.local
 .env.*.local
-
-# Large media assets (>100MB exceeds GitHub limits)
-public/videos/*.mp4
-!public/videos/.gitkeep
