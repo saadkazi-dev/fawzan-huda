@@ -1,0 +1,508 @@
+/* ==========================================
+   INVITATION VIDEO PAGE STYLES
+   Mobile-First Luxury Islamic Wedding Design
+   ========================================== */
+
+.app-wrapper.invitation-video-app-wrapper {
+  max-height: none !important;
+  height: auto !important;
+  overflow-y: auto !important;
+}
+
+.invitation-video-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  padding: 16px 14px 40px;
+  box-sizing: border-box;
+}
+
+@media (min-width: 576px) {
+  .invitation-video-page {
+    padding: 24px 20px 48px;
+  }
+}
+
+/* --- Top Navigation Header --- */
+.video-page-top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto 16px;
+  padding: 0 4px;
+}
+
+.back-to-home-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-midnight-700);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: rgba(197, 160, 89, 0.1);
+  border: 1px solid rgba(197, 160, 89, 0.35);
+  transition: all 0.25s ease;
+  touch-action: manipulation;
+}
+
+.back-to-home-link:hover,
+.back-to-home-link:focus-visible {
+  color: var(--color-midnight-900);
+  background: rgba(197, 160, 89, 0.2);
+  border-color: var(--color-gold-base);
+  transform: translateX(-2px);
+  outline: none;
+}
+
+.back-arrow-icon {
+  width: 15px;
+  height: 15px;
+  stroke: var(--color-gold-base);
+  stroke-width: 2.5;
+  transition: transform 0.2s ease;
+}
+
+.back-to-home-link:hover .back-arrow-icon {
+  transform: translateX(-3px);
+}
+
+.top-nav-badge {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-gold-antique);
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(197, 160, 89, 0.08);
+}
+
+/* --- Main Architectural Arch Casing --- */
+.video-arch-casing {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+  border-radius: 130px 130px 24px 24px;
+  border: 1.3px solid rgba(197, 160, 89, 0.55);
+  background: linear-gradient(
+    180deg,
+    #FFFDF8 0%,
+    #FAF5EC 18%,
+    #FAF5EC 62%,
+    #F4EADA 86%,
+    #ECE0CF 100%
+  );
+  box-shadow: 
+    0 18px 48px rgba(11, 22, 48, 0.08),
+    0 4px 14px rgba(197, 160, 89, 0.12),
+    0 0 1px 1px rgba(197, 160, 89, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.95);
+  padding: clamp(32px, 5vh, 42px) clamp(16px, 4vw, 22px) clamp(28px, 4vh, 36px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* Paper tooth grain background */
+.video-arch-casing::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paperGrain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.55  0 0 0 0 0.45  0 0 0 0 0.35  0 0 0 0.038 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paperGrain)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  mix-blend-mode: multiply;
+  opacity: 0.85;
+  z-index: 1;
+}
+
+/* Luxury Dashed Stationery Hairline */
+.video-arch-casing::after {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px dashed rgba(197, 160, 89, 0.32);
+  border-radius: 124px 124px 20px 20px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.video-arch-inner-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Arabic Calligraphy & Header --- */
+.video-header-section {
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.video-bismillah-text {
+  font-family: 'Amiri', 'Traditional Arabic', serif;
+  font-size: clamp(1.15rem, 3.8vw, 1.45rem);
+  color: var(--color-gold-antique);
+  letter-spacing: 0.05em;
+  margin: 0 0 8px;
+  line-height: 1.4;
+  user-select: none;
+}
+
+.video-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-midnight-600);
+  margin-bottom: 6px;
+}
+
+.video-couple-title {
+  font-family: var(--font-serif-display);
+  font-size: clamp(1.65rem, 6vw, 2.15rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-midnight-900);
+  margin: 0 0 6px;
+  line-height: 1.15;
+}
+
+.video-couple-amp {
+  font-family: var(--font-serif-body);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-gold-base);
+  margin: 0 4px;
+}
+
+.video-header-subtext {
+  font-family: var(--font-serif-body);
+  font-size: clamp(0.95rem, 3.2vw, 1.05rem);
+  font-style: italic;
+  color: var(--color-midnight-700);
+  margin: 0 auto;
+  max-width: 320px;
+  line-height: 1.35;
+}
+
+/* Decorative Divider */
+.video-ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 260px;
+  margin: 12px auto 18px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(197, 160, 89, 0.45) 50%,
+    transparent 100%
+  );
+}
+
+.divider-gem {
+  width: 6px;
+  height: 6px;
+  background: var(--color-gold-base);
+  transform: rotate(45deg);
+}
+
+/* --- Video Player Slot --- */
+.video-player-wrapper {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+/* --- Action Section --- */
+.video-actions-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Primary Action: Download Video */
+.action-btn-primary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #1C2541 0%, #0B132B 100%);
+  border: 1.5px solid rgba(197, 160, 89, 0.7);
+  border-radius: 14px;
+  color: #FFFDF9;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 
+    0 8px 22px rgba(11, 19, 43, 0.2),
+    0 0 12px rgba(197, 160, 89, 0.15);
+  transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.2s ease, border-color 0.2s ease;
+  touch-action: manipulation;
+}
+
+.action-btn-primary:hover,
+.action-btn-primary:focus-visible {
+  transform: translateY(-2px);
+  border-color: #E9D29A;
+  box-shadow: 
+    0 12px 28px rgba(11, 19, 43, 0.28),
+    0 0 18px rgba(197, 160, 89, 0.3);
+  outline: none;
+}
+
+.action-btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.action-btn-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: left;
+}
+
+.action-btn-icon-box {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 10px;
+  background: rgba(197, 160, 89, 0.18);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F3E2B4;
+}
+
+.action-btn-icon-box svg {
+  width: 20px;
+  height: 20px;
+}
+
+.action-btn-texts {
+  display: flex;
+  flex-direction: column;
+}
+
+.action-btn-title {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #FAF6EE;
+  line-height: 1.25;
+}
+
+.action-btn-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #C5A059;
+  letter-spacing: 0.02em;
+  margin-top: 2px;
+}
+
+.action-btn-arrow {
+  width: 18px;
+  height: 18px;
+  stroke: #C5A059;
+  transition: transform 0.2s ease;
+}
+
+.action-btn-primary:hover .action-btn-arrow {
+  transform: translateY(2px);
+}
+
+/* Secondary Actions Grid (Share & WhatsApp) */
+.secondary-actions-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+}
+
+.action-btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.2px solid rgba(197, 160, 89, 0.45);
+  background: #FFFDF9;
+  color: var(--color-midnight-900);
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 3px 10px rgba(11, 19, 43, 0.05);
+  transition: all 0.2s ease;
+  touch-action: manipulation;
+}
+
+.action-btn-secondary:hover,
+.action-btn-secondary:focus-visible {
+  border-color: var(--color-gold-base);
+  background: #FAF6EE;
+  color: var(--color-midnight-900);
+  transform: translateY(-1.5px);
+  box-shadow: 0 6px 14px rgba(197, 160, 89, 0.15);
+  outline: none;
+}
+
+.action-btn-secondary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.action-btn-secondary svg {
+  width: 17px;
+  height: 17px;
+  color: var(--color-gold-antique);
+}
+
+/* WhatsApp Specific Button */
+.action-btn-whatsapp svg {
+  color: #25D366;
+}
+
+/* Full Website Invitation Link */
+.action-btn-website {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 16px;
+  border-radius: 12px;
+  border: 1.2px solid rgba(11, 19, 43, 0.15);
+  background: rgba(197, 160, 89, 0.08);
+  color: var(--color-midnight-900);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  touch-action: manipulation;
+  margin-top: 4px;
+}
+
+.action-btn-website:hover,
+.action-btn-website:focus-visible {
+  background: rgba(197, 160, 89, 0.18);
+  border-color: var(--color-gold-base);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+.action-btn-website svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-gold-antique);
+}
+
+/* --- Toast Notification --- */
+.share-toast-notification {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(0);
+  z-index: 1000;
+  background: #0B132B;
+  color: #FAF6EE;
+  border: 1.2px solid var(--color-gold-base);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  padding: 12px 20px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  animation: toastFadeIn 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+}
+
+.share-toast-notification svg {
+  width: 18px;
+  height: 18px;
+  color: #C5A059;
+}
+
+@keyframes toastFadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* --- Bottom Compliments Block --- */
+.video-page-compliments {
+  margin-top: 24px;
+  text-align: center;
+  width: 100%;
+}
+
+.compliments-eyebrow {
+  display: block;
+  font-family: var(--font-serif-body);
+  font-size: 0.82rem;
+  font-style: italic;
+  color: var(--color-midnight-600);
+  margin-bottom: 4px;
+}
+
+.compliments-family {
+  font-family: var(--font-serif-display);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--color-midnight-900);
+  line-height: 1.35;
+  margin: 0;
+}

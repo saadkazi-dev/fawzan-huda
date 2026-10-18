@@ -1,12 +1,44 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { AppLayout } from '@/components/common';
 import { Preloader } from '@/components/preloader';
 import { OpeningVideo } from '@/components/video';
 import { HeroMountPoint } from '@/components/hero';
+import { InvitationVideoPage } from '@/components/video-page';
 import type { InvitationStage } from '@/types';
 
 function App() {
   const [stage, setStage] = useState<InvitationStage>('preloader');
+  const [currentPath, setCurrentPath] = useState<string>(() => {
+    if (typeof window !== 'undefined') {
+      return window.location.pathname.replace(/\/+$/, '');
+    }
+    return '';
+  });
+
+  useEffect(() => {
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname.replace(/\/+$/, ''));
+    };
+
+    window.addEventListener('popstate', handleLocationChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
+  }, []);
+
+  const navigateTo = (path: string) => {
+    window.history.pushState({}, '', path);
+    setCurrentPath(path.replace(/\/+$/, ''));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const isVideoPage = currentPath === '/invitation-video';
+
+  if (isVideoPage) {
+    return (
+      <AppLayout stage="hero-mount" className="invitation-video-app-wrapper">
+        <InvitationVideoPage onNavigateHome={() => navigateTo('/')} />
+      </AppLayout>
+    );
+  }
 
   return (
     <AppLayout stage={stage}>
@@ -27,6 +59,5 @@ function App() {
     </AppLayout>
   );
 }
-
 
 export default App;
