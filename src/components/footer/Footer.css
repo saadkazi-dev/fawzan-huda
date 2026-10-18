@@ -1,18 +1,14 @@
-/* ==========================================
-   FINAL FOOTER & CREATOR SIGNATURE (PHASE 10)
-   Mobile-First Luxury 2D Footer Section
-   ========================================== */
+/* ========================================================
+   CINEMATIC LUXURY ISLAMIC WEDDING OUTRO & CREATOR FINALE
+   Phase 10 — Luxury Editorial Islamic Outro
+   ======================================================== */
 
 .invitation-footer-container {
   position: relative;
   width: 100%;
-  padding: var(--space-2xl) var(--space-md) var(--space-xl) var(--space-md);
-  background: linear-gradient(
-    180deg,
-    var(--color-cream-100) 0%,
-    var(--color-cream-200) 50%,
-    #E8DCB8 100%
-  );
+  padding: var(--space-2xl) var(--space-md) var(--space-lg) var(--space-md);
+  background: 
+    radial-gradient(ellipse 110% 70% at 50% 0%, #FFFFFF 0%, #FAF6EE 35%, #F4ECE0 70%, #E8DCC8 100%);
   border-top: 1px solid rgba(197, 160, 89, 0.4);
   box-sizing: border-box;
   display: flex;
@@ -22,122 +18,704 @@
   z-index: 5;
 }
 
-.footer-content-wrapper {
+/* Delicate Golden Ambient Horizon Line */
+.invitation-footer-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(197, 160, 89, 0.8) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Background Sacred Islamic Geometric Watermark */
+.footer-sacred-watermark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg width='56' height='56' viewBox='0 0 56 56' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 4 L34 22 L52 28 L34 34 L28 52 L22 34 L4 28 L22 22 Z' fill='none' stroke='%23C5A059' stroke-width='0.8'/%3E%3Ccircle cx='28' cy='28' r='7' fill='none' stroke='%23C5A059' stroke-width='0.6'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  z-index: 0;
+}
+
+/* ========================================================
+   MAIN ARCHITECTURAL OUTRO SANCTUARY CARD
+   ======================================================== */
+
+.footer-outro-card {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 254, 251, 0.96) 0%,
+    rgba(252, 248, 239, 0.94) 50%,
+    rgba(246, 238, 224, 0.95) 100%
+  );
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  border-radius: 72px 72px 28px 28px;
+  box-shadow:
+    0 16px 40px rgba(11, 19, 43, 0.06),
+    0 2px 10px rgba(197, 160, 89, 0.12),
+    inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  padding: var(--space-xl) var(--space-md) var(--space-xl) var(--space-md);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 100%;
-  max-width: 440px;
+  z-index: 2;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
-/* Compliments Section */
-.footer-compliments-block {
+/* Inner Frame Border */
+.footer-card-inner-frame {
+  position: absolute;
+  inset: 7px;
+  border: 1px dashed rgba(197, 160, 89, 0.28);
+  border-radius: 66px 66px 22px 22px;
+  pointer-events: none;
+}
+
+/* Corner Arabesque Flourish Brackets */
+.footer-corner-bracket {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.footer-corner-tl { top: 14px; left: 14px; }
+.footer-corner-tr { top: 14px; right: 14px; }
+.footer-corner-bl { bottom: 14px; left: 14px; }
+.footer-corner-br { bottom: 14px; right: 14px; }
+
+/* ========================================================
+   TOP ISLAMIC ARCH CREST & ROSETTE
+   ======================================================== */
+
+.footer-outro-crest {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  margin-bottom: var(--space-sm);
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-crest-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.footer-crest-star-sq {
+  transform-origin: center;
+  transition: stroke 0.3s ease;
+}
+
+/* ========================================================
+   COMPLIMENTS & FAMILY SIGN-OFF SECTION
+   ======================================================== */
+
+.footer-compliments-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-md);
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* Refined Eyebrow Badge */
+.footer-compliments-kicker-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  background: rgba(197, 160, 89, 0.08);
+  border: 1px solid rgba(197, 160, 89, 0.28);
+  margin-bottom: var(--space-2xs);
+}
+
+.footer-kicker-flourish {
+  font-size: 0.75rem;
+  color: var(--color-gold-base);
+  line-height: 1;
+  opacity: 0.9;
 }
 
 .footer-compliments-eyebrow {
   font-family: var(--font-sans);
-  font-size: 0.6875rem;
+  font-size: 0.65rem;
   font-weight: 600;
   color: var(--color-gold-dark);
-  letter-spacing: 0.25em;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  margin-bottom: var(--space-2xs);
+  margin: 0;
+  line-height: 1.2;
 }
 
+/* Poetic Dedication Subtitle */
+.footer-compliments-dedication {
+  font-family: var(--font-serif-body);
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-midnight-700);
+  margin: 4px 0 var(--space-sm) 0;
+  opacity: 0.82;
+  letter-spacing: 0.02em;
+}
+
+/* Locked Family Name Typography */
 .footer-compliments-family {
   font-family: var(--font-serif-display);
-  font-size: 1.15rem;
-  font-weight: 600;
   color: var(--color-midnight-900);
-  letter-spacing: 0.05em;
-  line-height: 1.4;
-  max-width: 320px;
-  text-transform: uppercase;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  width: 100%;
+  max-width: 380px;
 }
 
-/* Creator Signature Block */
-.footer-signature-block {
+.family-line {
+  display: block;
+  text-align: center;
+  line-height: 1.32;
+}
+
+.family-line.family-primary {
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  color: var(--color-midnight-900);
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+}
+
+.family-ampersand-bridge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 160px;
+  margin: 1px 0;
+}
+
+.family-ampersand-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(197, 160, 89, 0.6) 50%,
+    transparent 100%
+  );
+}
+
+.family-ampersand-glyph {
+  font-family: var(--font-serif-display);
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 500;
+  color: var(--color-gold-base);
+  text-shadow: 0 1px 4px rgba(197, 160, 89, 0.35);
+}
+
+.family-line.family-secondary {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--color-midnight-800);
+  opacity: 0.92;
+}
+
+/* ========================================================
+   MID ARABESQUE DIVIDER
+   ======================================================== */
+
+.footer-mid-divider {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  margin: var(--space-xs) auto var(--space-sm) auto;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+.footer-divider-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* ========================================================
+   CREATOR SIGNATURE SEAL BLOCK
+   ======================================================== */
+
+.footer-creator-seal {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  margin-top: var(--space-sm);
+  position: relative;
+  z-index: 2;
+  margin-top: var(--space-xs);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+  width: 100%;
+  max-width: 340px;
+  box-sizing: border-box;
+}
+
+.footer-signature-kicker-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-kicker-sparkle {
+  font-size: 0.55rem;
+  color: var(--color-gold-base);
+  opacity: 0.85;
 }
 
 .footer-signature-label {
   font-family: var(--font-sans);
-  font-size: 0.625rem;
+  font-size: 0.6rem;
   font-weight: 600;
   color: var(--color-midnight-700);
-  letter-spacing: 0.3em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   opacity: 0.85;
 }
 
 .footer-signature-name-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-family: var(--font-serif-display);
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--color-midnight-900);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-decoration: none;
-  transition: all 0.3s ease;
   position: relative;
-  display: inline-block;
-  padding-bottom: 2px;
-  border-bottom: 1px solid var(--color-gold-base);
+  padding: 2px 4px;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.footer-signature-name-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0%;
+  height: 1.5px;
+  background: linear-gradient(
+    90deg,
+    rgba(197, 160, 89, 0.2) 0%,
+    var(--color-gold-base) 50%,
+    rgba(197, 160, 89, 0.2) 100%
+  );
+  transition: width 0.35s ease, left 0.35s ease;
+  border-radius: 2px;
+}
+
+.footer-name-arrow {
+  width: 14px;
+  height: 14px;
+  color: var(--color-gold-base);
+  transform: translate(0, 0);
+  transition: transform 0.35s ease, color 0.35s ease;
+  opacity: 0.8;
 }
 
 .footer-signature-name-link:hover {
   color: var(--color-gold-dark);
-  border-bottom-color: var(--color-gold-dark);
-  transform: translateY(-1px);
 }
 
-/* Creator Social Links Bar */
+.footer-signature-name-link:hover::after {
+  width: 90%;
+  left: 5%;
+}
+
+.footer-signature-name-link:hover .footer-name-arrow {
+  transform: translate(2px, -2px);
+  color: var(--color-gold-dark);
+  opacity: 1;
+}
+
+.footer-creator-role {
+  font-family: var(--font-serif-body);
+  font-size: 0.8125rem;
+  font-style: italic;
+  color: var(--color-midnight-600);
+  margin: 0;
+  letter-spacing: 0.02em;
+  opacity: 0.8;
+}
+
+/* ========================================================
+   SOCIAL ACTION CAPSULES BAR (WhatsApp & Instagram)
+   ======================================================== */
+
 .footer-social-bar {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--space-md);
+  gap: var(--space-sm);
   margin-top: var(--space-md);
+  width: 100%;
+  max-width: 360px;
+  position: relative;
+  z-index: 2;
 }
 
-.footer-social-icon-btn {
+.footer-social-capsule {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 254, 252, 0.95) 0%,
+    rgba(250, 245, 235, 0.9) 100%
+  );
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  color: var(--color-midnight-900);
+  text-decoration: none;
+  box-shadow:
+    0 3px 12px rgba(11, 19, 43, 0.05),
+    inset 0 1px 1px rgba(255, 255, 255, 0.9);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  box-sizing: border-box;
+  min-height: 48px;
+}
+
+/* Shimmer Sweep on Hover */
+.social-capsule-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+  pointer-events: none;
+}
+
+.social-capsule-icon-wrap {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 8px 18px;
-  border-radius: 999px;
-  background: rgba(255, 253, 249, 0.85);
-  border: 1px solid rgba(197, 160, 89, 0.45);
-  color: var(--color-midnight-900);
-  font-family: var(--font-sans);
-  font-size: 0.6875rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-decoration: none;
-  box-shadow: 0 2px 8px rgba(11, 19, 43, 0.04);
+  background: rgba(197, 160, 89, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  flex-shrink: 0;
   transition: all 0.3s ease;
 }
 
-.footer-social-icon-btn:hover {
-  background: var(--color-cream-50);
-  border-color: var(--color-gold-dark);
-  color: var(--color-gold-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(197, 160, 89, 0.25);
+.social-svg-icon {
+  width: 15px;
+  height: 15px;
+  color: var(--color-midnight-900);
+  transition: all 0.3s ease;
 }
 
-.footer-social-icon-btn svg {
-  width: 16px;
-  height: 16px;
-  flex-shrink: 0;
+.social-capsule-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  line-height: 1.15;
+}
+
+.social-capsule-title {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-midnight-900);
+  transition: color 0.3s ease;
+}
+
+.social-capsule-sub {
+  font-family: var(--font-serif-body);
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--color-midnight-600);
+  opacity: 0.85;
+}
+
+/* Hover & Active Micro-Interactions */
+.footer-social-capsule:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(
+    135deg,
+    #FFFFFF 0%,
+    var(--color-cream-50) 100%
+  );
+  border-color: var(--color-gold-base);
+  box-shadow:
+    0 8px 24px rgba(197, 160, 89, 0.25),
+    0 2px 6px rgba(11, 19, 43, 0.06);
+}
+
+.footer-social-capsule:hover .social-capsule-glow {
+  left: 140%;
+}
+
+.footer-social-capsule:hover .social-capsule-icon-wrap {
+  background: var(--color-gold-base);
+  border-color: var(--color-gold-dark);
+  box-shadow: 0 0 10px rgba(197, 160, 89, 0.45);
+}
+
+.footer-social-capsule:hover .social-svg-icon {
+  color: #FFFFFF;
+}
+
+.footer-social-capsule:hover .social-capsule-title {
+  color: var(--color-gold-dark);
+}
+
+.footer-social-capsule:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* WhatsApp Specific Accent */
+.footer-social-whatsapp:hover {
+  border-color: #25D366;
+}
+.footer-social-whatsapp:hover .social-capsule-icon-wrap {
+  background: #25D366;
+  border-color: #1EBE5D;
+  box-shadow: 0 0 12px rgba(37, 211, 102, 0.4);
+}
+
+/* Instagram Specific Accent */
+.footer-social-instagram:hover {
+  border-color: #E1306C;
+}
+.footer-social-instagram:hover .social-capsule-icon-wrap {
+  background: linear-gradient(45deg, #F09433 0%, #E6683C 25%, #DC2743 50%, #CC2366 75%, #BC1888 100%);
+  border-color: #E1306C;
+  box-shadow: 0 0 12px rgba(225, 48, 108, 0.4);
+}
+
+/* ========================================================
+   SUBTLE MIDNIGHT-NAVY BOTTOM GROUNDING BAR
+   ======================================================== */
+
+.footer-grounding-bar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: var(--space-xl);
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(11, 19, 43, 0.05);
+  border: 1px solid rgba(197, 160, 89, 0.25);
+  z-index: 2;
+  position: relative;
+}
+
+.footer-grounding-ornament {
+  font-size: 0.55rem;
+  color: var(--color-gold-base);
+  opacity: 0.8;
+}
+
+.footer-grounding-text {
+  font-family: var(--font-sans);
+  font-size: 0.5625rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-midnight-700);
+  opacity: 0.85;
+}
+
+/* ========================================================
+   ENTRANCE ANIMATIONS & REFINED MOTION
+   ======================================================== */
+
+.footer-outro-card {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.footer-outro-crest {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+
+.footer-compliments-section {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+
+.footer-mid-divider {
+  opacity: 0;
+  transform: scaleX(0.7);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.45s,
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.45s;
+}
+
+.footer-creator-seal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.55s;
+}
+
+.footer-social-bar {
+  opacity: 0;
+  transform: translateY(12px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.65s,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.65s;
+}
+
+.footer-grounding-bar {
+  opacity: 0;
+  transition: opacity 0.8s ease 0.8s;
+}
+
+/* In-View Activated States */
+.invitation-footer-container.is-in-view .footer-outro-card,
+.invitation-footer-container.is-in-view .footer-outro-crest,
+.invitation-footer-container.is-in-view .footer-compliments-section,
+.invitation-footer-container.is-in-view .footer-mid-divider,
+.invitation-footer-container.is-in-view .footer-creator-seal,
+.invitation-footer-container.is-in-view .footer-social-bar {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.invitation-footer-container.is-in-view .footer-grounding-bar {
+  opacity: 1;
+}
+
+/* Ambient Subtle Star Rosette Breathing Pulse */
+@keyframes outroStarBreathe {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+    filter: drop-shadow(0 0 2px rgba(197, 160, 89, 0.3));
+  }
+  50% {
+    transform: rotate(4deg) scale(1.04);
+    filter: drop-shadow(0 0 7px rgba(233, 210, 154, 0.75));
+  }
+}
+
+.invitation-footer-container.is-in-view .footer-outro-crest g {
+  animation: outroStarBreathe 6s ease-in-out infinite;
+}
+
+/* ========================================================
+   RESPONSIVE DESIGN (MOBILE-FIRST)
+   ======================================================== */
+
+@media (max-width: 380px) {
+  .invitation-footer-container {
+    padding-left: var(--space-xs);
+    padding-right: var(--space-xs);
+  }
+
+  .footer-outro-card {
+    border-radius: 56px 56px 22px 22px;
+    padding: var(--space-lg) var(--space-xs) var(--space-lg) var(--space-xs);
+  }
+
+  .footer-card-inner-frame {
+    inset: 5px;
+    border-radius: 50px 50px 18px 18px;
+  }
+
+  .family-line.family-primary {
+    font-size: 1.05rem;
+  }
+
+  .family-line.family-secondary {
+    font-size: 0.875rem;
+  }
+
+  .footer-social-bar {
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .footer-social-capsule {
+    width: 100%;
+  }
+
+  .footer-signature-name-link {
+    font-size: 1.15rem;
+  }
+}
+
+/* ========================================================
+   PREFERS-REDUCED-MOTION SUPPORT
+   ======================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .invitation-footer-container *,
+  .invitation-footer-container *::before,
+  .invitation-footer-container *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
 }
