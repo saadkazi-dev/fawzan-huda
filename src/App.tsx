@@ -5,9 +5,11 @@ import { OpeningVideo } from '@/components/video';
 import { HeroMountPoint } from '@/components/hero';
 import { InvitationVideoPage } from '@/components/video-page';
 import { GuestAccessCard } from '@/components/guest';
+import { AudioProvider } from '@/context/AudioContext';
+import { AudioControl } from '@/components/audio';
 import type { InvitationStage } from '@/types';
 
-function App() {
+function AppContent() {
   const [stage, setStage] = useState<InvitationStage>('preloader');
   const [currentPath, setCurrentPath] = useState<string>(() => {
     if (typeof window !== 'undefined') {
@@ -34,45 +36,59 @@ function App() {
   const isVideoPage = currentPath === '/invitation-video';
   const isGuestPage = currentPath === '/guest';
 
-  if (isGuestPage) {
-    return (
-      <AppLayout stage="hero-mount" className="guest-card-app-wrapper">
-        <GuestAccessCard
-          onOpenInvitation={() => navigateTo('/')}
-          onWatchFilm={() => navigateTo('/invitation-video')}
-        />
-      </AppLayout>
-    );
-  }
-
-  if (isVideoPage) {
-    return (
-      <AppLayout stage="hero-mount" className="invitation-video-app-wrapper">
-        <InvitationVideoPage onNavigateHome={() => navigateTo('/')} />
-      </AppLayout>
-    );
-  }
+  const layoutStage: InvitationStage = isGuestPage || isVideoPage ? 'hero-mount' : stage;
+  const layoutClass = isGuestPage
+    ? 'guest-card-app-wrapper'
+    : isVideoPage
+    ? 'invitation-video-app-wrapper'
+    : undefined;
 
   return (
-    <AppLayout stage={stage}>
-      {stage === 'preloader' && (
-        <Preloader onOpen={() => setStage('opening-video')} />
-      )}
+    <>
+      <AudioControl />
+      <AppLayout stage={layoutStage} className={layoutClass}>
+        {isGuestPage && (
+          <GuestAccessCard
+            onOpenInvitation={() => navigateTo('/')}
+            onWatchFilm={() => navigateTo('/invitation-video')}
+          />
+        )}
 
-      {stage === 'opening-video' && (
-        <OpeningVideo 
-          videoSrc="/assets/videos/opening-video.mp4"
-          onEnded={() => setStage('hero-mount')} 
-        />
-      )}
+        {isVideoPage && (
+          <InvitationVideoPage onNavigateHome={() => navigateTo('/')} />
+        )}
 
-      {stage === 'hero-mount' && (
-        <HeroMountPoint
-          onReplay={() => setStage('preloader')}
-          onNavigateToVideo={() => navigateTo('/invitation-video')}
-        />
-      )}
-    </AppLayout>
+        {!isGuestPage && !isVideoPage && (
+          <>
+            {stage === 'preloader' && (
+              <Preloader onOpen={() => setStage('opening-video')} />
+            )}
+
+            {stage === 'opening-video' && (
+              <OpeningVideo 
+                videoSrc="/assets/videos/opening-video.mp4"
+                onEnded={() => setStage('hero-mount')} 
+              />
+            )}
+
+            {stage === 'hero-mount' && (
+              <HeroMountPoint
+                onReplay={() => setStage('preloader')}
+                onNavigateToVideo={() => navigateTo('/invitation-video')}
+              />
+            )}
+          </>
+        )}
+      </AppLayout>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <AudioProvider>
+      <AppContent />
+    </AudioProvider>
   );
 }
 

@@ -6,6 +6,7 @@ import React, {
   useImperativeHandle,
   forwardRef,
 } from 'react';
+import { useAudio } from '@/context/AudioContext';
 import './VideoPlayer.css';
 
 export interface VideoPlayerProps {
@@ -34,6 +35,9 @@ export const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
     },
     ref
   ) => {
+    const { pauseForVideo, resumeFromVideo } = useAudio();
+    const hasPausedAudioRef = useRef<boolean>(false);
+
     const containerRef = useRef<HTMLDivElement | null>(null);
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const scrubberRef = useRef<HTMLDivElement | null>(null);
@@ -324,11 +328,19 @@ export const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
         setIsPlaying(true);
         setHasEnded(false);
         scheduleHideControls();
+        if (!hasPausedAudioRef.current) {
+          hasPausedAudioRef.current = true;
+          pauseForVideo();
+        }
       };
 
       const onPause = () => {
         setIsPlaying(false);
         setShowControls(true);
+        if (hasPausedAudioRef.current) {
+          hasPausedAudioRef.current = false;
+          resumeFromVideo();
+        }
       };
 
       const onWaiting = () => setIsBuffering(true);
@@ -339,6 +351,10 @@ export const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
         setIsPlaying(false);
         setHasEnded(true);
         setShowControls(true);
+        if (hasPausedAudioRef.current) {
+          hasPausedAudioRef.current = false;
+          resumeFromVideo();
+        }
         if (onEnded) onEnded();
       };
 
@@ -365,8 +381,12 @@ export const VideoPlayer = forwardRef<VideoPlayerHandle, VideoPlayerProps>(
         if (hideControlsTimer.current) {
           window.clearTimeout(hideControlsTimer.current);
         }
+        if (hasPausedAudioRef.current) {
+          hasPausedAudioRef.current = false;
+          resumeFromVideo();
+        }
       };
-    }, [isScrubbing, scheduleHideControls, onEnded]);
+    }, [isScrubbing, scheduleHideControls, onEnded, pauseForVideo, resumeFromVideo]);
 
     // Scrubber seeking calculations
     const calculateScrubPosition = useCallback(

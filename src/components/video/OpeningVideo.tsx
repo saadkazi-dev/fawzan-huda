@@ -41,7 +41,7 @@ export const OpeningVideo: React.FC<OpeningVideoProps> = ({
     return () => clearTimeout(exitTimer);
   }, [isEnding, onEnded]);
 
-  // Handle direct user gesture to unlock unmuted HTML5 video & audio playback
+  // Always play opening video muted so background music plays uninterrupted
   const handleTapToEnter = useCallback(async () => {
     if (hasStarted || isEnding) return;
 
@@ -50,21 +50,14 @@ export const OpeningVideo: React.FC<OpeningVideoProps> = ({
 
     if (videoElem) {
       try {
-        videoElem.muted = false;
-        videoElem.volume = 1;
+        videoElem.muted = true;
+        videoElem.volume = 0;
         videoElem.currentTime = 0;
         await videoElem.play();
         setIsPlaying(true);
       } catch (err) {
-        console.warn('Unmuted playback attempt interrupted or muted fallback required:', err);
-        try {
-          videoElem.muted = true;
-          await videoElem.play();
-          setIsPlaying(true);
-        } catch (mutedErr) {
-          console.error('Video playback error:', mutedErr);
-          setHasError(true);
-        }
+        console.error('Video playback error:', err);
+        setHasError(true);
       }
     }
   }, [hasStarted, isEnding]);
@@ -113,6 +106,7 @@ export const OpeningVideo: React.FC<OpeningVideoProps> = ({
             poster={posterSrc}
             className={`opening-video-element ${isPlaying ? 'video-playing' : 'video-paused'}`}
             playsInline
+            muted
             controls={false}
             preload="auto"
             onEnded={handleFinish}
@@ -193,5 +187,3 @@ export const OpeningVideo: React.FC<OpeningVideoProps> = ({
     </div>
   );
 };
-
-

@@ -1,0 +1,122 @@
+/* ========================================================
+   PERSISTENT WEDDING BACKGROUND MUSIC CONTROL
+   Compact, Luxury Islamic Gold & Royal Midnight Button
+   ======================================================== */
+
+.audio-control-fixed {
+  position: fixed;
+  top: max(14px, env(safe-area-inset-top));
+  right: max(14px, env(safe-area-inset-right));
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: auto;
+}
+
+.audio-toggle-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(11, 19, 43, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  color: var(--color-gold-light, #E9D29A);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+  box-shadow: 
+    0 4px 14px rgba(11, 19, 43, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.audio-toggle-btn:hover {
+  background: rgba(20, 28, 54, 0.9);
+  border-color: var(--color-gold-light, #E9D29A);
+  color: #FFFFFF;
+  box-shadow: 
+    0 4px 18px rgba(197, 160, 89, 0.35),
+    0 0 12px rgba(197, 160, 89, 0.25);
+  transform: scale(1.05);
+}
+
+.audio-toggle-btn:focus-visible {
+  border-color: var(--color-gold-light, #E9D29A);
+  box-shadow: 
+    0 0 0 3px rgba(197, 160, 89, 0.45),
+    0 4px 16px rgba(11, 19, 43, 0.5);
+}
+
+.audio-toggle-btn:active {
+  transform: scale(0.96);
+}
+
+/* Subtle gold pulse ring when actively playing audio */
+.audio-toggle-btn.is-playing::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  animation: audioPulseRing 2.4s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes audioPulseRing {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.18);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+.audio-icon-svg {
+  width: 19px;
+  height: 19px;
+  display: block;
+}
+
+/* Sound wave animations */
+.sound-wave-bar {
+  transition: opacity 0.2s ease;
+}
+
+.audio-toggle-btn.is-playing .sound-wave-bar-1 {
+  animation: audioWavePulse 1.2s ease-in-out infinite;
+}
+
+.audio-toggle-btn.is-playing .sound-wave-bar-2 {
+  animation: audioWavePulse 1.2s ease-in-out infinite 0.25s;
+}
+
+@keyframes audioWavePulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* Muted state styling */
+.audio-toggle-btn.is-muted {
+  background: rgba(11, 19, 43, 0.6);
+  border-color: rgba(197, 160, 89, 0.28);
+  color: rgba(233, 210, 154, 0.6);
+}
+
+.audio-toggle-btn.is-muted:hover {
+  border-color: rgba(197, 160, 89, 0.65);
+  color: var(--color-gold-light, #E9D29A);
+}
